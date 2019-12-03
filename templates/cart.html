@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="../img/icon.ico" type="image/x-icon">
+    <title>購物車</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <!-- bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- sweetalert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <link rel="stylesheet" href="../css/reset.css"> <!-- CSS reset -->
+    <link rel="stylesheet" href="../css/style.css"> <!-- Gem style -->
+    <!-- <link rel="stylesheet" href="../css/product.css"> -->
+    <link rel="stylesheet" href="../css/cart.css">
+    <script src="../js/modernizr.js"></script> <!-- Modernizr -->
+    <script src="../js/main.js"></script> <!-- Gem jQuery -->
+    <!-- <script src="../js/product.js"></script> -->
+    <script src="../js/navbar.js"></script>
+    <script src="../js/cart.js"></script>
+    {if {{$cookie}} == "error" }
+    <script src="../js/swal.js"></script>
+    {/if}
+</head>
+
+<body>
+    {{include file="../templates/navbar.html"}}
+    <main>
+        <ul>
+            <li>
+                    <div class="table">
+                        <div class="layout-inline row th">
+                            <div class="col col-pro">&emsp;商品</div>
+                            <div class="col col-price align-center ">
+                                單價(NT)
+                            </div>
+                            <div class="col col-qty align-center">數量</div>
+                            <div class="col">總價</div>
+                            <div class="col">取消</div>
+                        </div>
+                        {{foreach $showCart as $value}}
+                        <div class="layout-inline row list{{$value.id}}">
+                            <div class="col col-pro layout-inline">
+                                <p>《 {{$value.gameName}}》</p>
+                            </div>
+
+                            <div class="col col-price col-numeric align-center ">
+                                <p>${{$value.price}}</p>
+                            </div>
+
+                            <div class="col col-qty layout-inline">
+                                <p>1</p>
+                                <!-- <a href="#" class="qty qty-minus">-</a>
+                                                <input type="numeric" value="1" />
+                                                <a href="#" class="qty qty-plus">+</a> -->
+                            </div>
+                            <div class="col col-total col-numeric">
+                                <p class="price{{$value.id}}">{{$value.price}}</p>
+                            </div>
+                            <div class="col col-cancel col-numeric">
+                                <button type="button" class="btn btn-danger glyphicon glyphicon-trash"
+                                    onclick="remove(`{{$value.id}}`)"></button>
+                            </div>
+                        </div>
+                        {{/foreach}}
+                        <div class="tf">
+                            <div class="row layout-inline">
+                                <div class="col">
+                                    <p>Total</p>
+                                </div>
+                                <div class="col">
+                                    <p class="total">{{$total}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        {if isset($showCart)}
+                        <a href="checkBill.php" class="btn btn-update">去結帳</a>
+                        {/if}
+                    </div>
+            </li>
+        </ul>
+    </main>
+
+</body>
+
+</html>

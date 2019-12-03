@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>管理頁</title>
+    <link rel="icon" href="../img/icon.ico" type="image/x-icon">
+    <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script> -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="../css/reset.css"> <!-- CSS reset -->
+    <link rel="stylesheet" href="../css/style.css"> <!-- Gem style -->
+    <link rel="stylesheet" href="../css/manager.css">
+    <script src="../js/modernizr.js"></script> <!-- Modernizr -->
+    <script src="../js/main.js"></script> <!-- Gem jQuery -->
+    <script src="../js/manager.js"></script>
+    <script src="../js/navbar.js"></script>
+    {if {{$cookie}} == "error" }
+    <script src="../js/swal.js"></script>
+    {/if}
+
+
+</head>
+
+<body>
+    {{include file="../templates/navbar.html"}}
+    <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'productList')" id="defaultOpen">商品管理</button>
+        <button class="tablinks" onclick="openCity(event, 'userList')">會員管理</button>
+        <button class="tablinks" onclick="openCity(event, 'product')">商品上傳</button>
+    </div>
+
+    <ul>
+        <div id="productList" class="tabcontent">
+            <li>
+                <h3 class="list">品名</h3>
+                <p class="list">價格</p>
+            </li>
+            <hr>
+            {{foreach $all as $value}}
+            <li>
+                <h3 class="list">{{$value.name}}</h3>
+                <p class="list">{{$value.price}}</p>
+                <div class="switch">
+                    <input id="cmn-toggle-4 {{$value.id}}" class="cmn-toggle cmn-toggle-round-flat" type="checkbox" checked>
+                    <label for="cmn-toggle-4 {{$value.id}}"></label>
+                </div>
+            </li>
+            <hr>
+            {{/foreach}}
+        </div>
+    </ul>
+
+    <div id="userList" class="tabcontent">
+        <h3>Paris</h3>
+        <p>Paris is the capital of France.</p>
+    </div>
+
+    <div id="product" class="tabcontent">
+        <h3>Tokyo</h3>
+        <p>Tokyo is the capital of Japan.</p>
+    </div>
+
+
+</body>
+
+</html>

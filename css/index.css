@@ -1,0 +1,19 @@
+h6{
+    color: aqua;
+}
+#cart {
+    position: absolute;
+    display: inline-block;
+    right: 0;
+    top: 0;
+    /* white-space: nowrap; */
+    height: 100%;
+    width: 60px;
+    height: 100%;
+  }
+  #car{
+      height: 100%;
+      width: 60px;
+      height: 100%;
+  }
+  

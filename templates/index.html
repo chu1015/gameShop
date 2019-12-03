@@ -1,0 +1,46 @@
+﻿<!doctype html>
+<html lang="zh" class="no-js">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>遊戲購物網</title>
+	<link rel="icon" href="../img/icon.ico" type="image/x-icon">
+	<!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script> -->
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+	<link rel="stylesheet" href="../css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="../css/style.css"> <!-- Gem style -->
+	<link rel="stylesheet" href="../css/index.css"> <!-- myself -->
+	<script src="../js/modernizr.js"></script> <!-- Modernizr -->
+	<script src="../js/main.js"></script> <!-- Gem jQuery -->
+	<script src="../js/index.js"></script>
+	<script src="../js/navbar.js"></script>
+	{if {{$cookie}} == "error" }
+	<script src="../js/swal.js"></script>
+	{/if}
+	
+
+</head>
+
+<body>
+		{{include file="../templates/navbar.html"}}
+	<main>
+		<ul id="cd-gallery-items" class="cd-container">
+			{foreach $all as $value}
+			<li>
+				<a href="../views/product.php?product={{$value.id}}"><img src="../img/{{$value.img}}" alt="Preview image"></a>
+				<!-- <img onclick="product(`{{$value.id}}`)" src="../img/{{$value.img}}" alt="Preview image"> -->
+					<br>
+					<h6>{{$value.name}}</h6>
+			</li>
+			{/foreach}
+		</ul> <!-- cd-gallery-items -->
+	</main>
+
+</body>
+
+</html>
+
+<!-- <a style="display:none" href="http://www.bootstrapmb.com">bootstrap模板库</a> -->
