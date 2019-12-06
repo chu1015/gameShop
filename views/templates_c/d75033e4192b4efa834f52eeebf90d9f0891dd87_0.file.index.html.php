@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-11-29 11:27:39
+/* Smarty version 3.1.33, created on 2019-12-05 04:24:05
   from 'C:\xampp\htdocs\chu\gameShop\templates\index.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5de0f29be6bef0_28904195',
+  'unifunc' => 'content_5de87855a68587_66917750',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd75033e4192b4efa834f52eeebf90d9f0891dd87' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chu\\gameShop\\templates\\index.html',
-      1 => 1575023197,
+      1 => 1575516244,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../templates/navbar.html' => 1,
   ),
 ),false)) {
-function content_5de0f29be6bef0_28904195 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5de87855a68587_66917750 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <html lang="zh" class="no-js">
 
@@ -66,12 +66,12 @@ if ($_prefixVariable2 == "error") {?>
  src="../js/swal.js"><?php echo '</script'; ?>
 >
 	<?php }?>
-	
+
 
 </head>
 
 <body>
-		<?php ob_start();
+	<?php ob_start();
 $_smarty_tpl->_subTemplateRender("file:../templates/navbar.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_prefixVariable3 = ob_get_clean();
 echo $_prefixVariable3;?>
@@ -88,7 +88,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['value']->value) {
 echo $_smarty_tpl->tpl_vars['value']->value['id'];
 $_prefixVariable4 = ob_get_clean();
 echo $_prefixVariable4;?>
-"><img src="../img/<?php ob_start();
+"><img src="<?php ob_start();
 echo $_smarty_tpl->tpl_vars['value']->value['img'];
 $_prefixVariable5 = ob_get_clean();
 echo $_prefixVariable5;?>
@@ -102,8 +102,8 @@ echo $_smarty_tpl->tpl_vars['value']->value['img'];
 $_prefixVariable7 = ob_get_clean();
 echo $_prefixVariable7;?>
 " alt="Preview image"> -->
-					<br>
-					<h6><?php ob_start();
+				<br>
+				<h6><?php ob_start();
 echo $_smarty_tpl->tpl_vars['value']->value['name'];
 $_prefixVariable8 = ob_get_clean();
 echo $_prefixVariable8;?>
@@ -114,6 +114,41 @@ echo $_prefixVariable8;?>
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 		</ul> <!-- cd-gallery-items -->
+		<nav class="npage" aria-label="Page navigation example">
+			<ul class="pagination">
+				<?php
+$_smarty_tpl->tpl_vars['num'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);$_smarty_tpl->tpl_vars['num']->step = 1;$_smarty_tpl->tpl_vars['num']->total = (int) ceil(($_smarty_tpl->tpl_vars['num']->step > 0 ? $_smarty_tpl->tpl_vars['res']->value+1 - (1) : 1-($_smarty_tpl->tpl_vars['res']->value)+1)/abs($_smarty_tpl->tpl_vars['num']->step));
+if ($_smarty_tpl->tpl_vars['num']->total > 0) {
+for ($_smarty_tpl->tpl_vars['num']->value = 1, $_smarty_tpl->tpl_vars['num']->iteration = 1;$_smarty_tpl->tpl_vars['num']->iteration <= $_smarty_tpl->tpl_vars['num']->total;$_smarty_tpl->tpl_vars['num']->value += $_smarty_tpl->tpl_vars['num']->step, $_smarty_tpl->tpl_vars['num']->iteration++) {
+$_smarty_tpl->tpl_vars['num']->first = $_smarty_tpl->tpl_vars['num']->iteration === 1;$_smarty_tpl->tpl_vars['num']->last = $_smarty_tpl->tpl_vars['num']->iteration === $_smarty_tpl->tpl_vars['num']->total;?>
+				<?php if ($_smarty_tpl->tpl_vars['page']->value == $_smarty_tpl->tpl_vars['num']->value) {?>
+				<li class="page-item"><a class="page-link btn btn-outline-light disabled" href="?page=<?php ob_start();
+echo $_smarty_tpl->tpl_vars['num']->value;
+$_prefixVariable9 = ob_get_clean();
+echo $_prefixVariable9;?>
+"><?php ob_start();
+echo $_smarty_tpl->tpl_vars['num']->value;
+$_prefixVariable10 = ob_get_clean();
+echo $_prefixVariable10;?>
+</a>
+				</li>
+				<?php } else { ?>
+				<li class="page-item"><a class="page-link btn btn-outline-light active" href="?page=<?php ob_start();
+echo $_smarty_tpl->tpl_vars['num']->value;
+$_prefixVariable11 = ob_get_clean();
+echo $_prefixVariable11;?>
+"><?php ob_start();
+echo $_smarty_tpl->tpl_vars['num']->value;
+$_prefixVariable12 = ob_get_clean();
+echo $_prefixVariable12;?>
+</a>
+				</li>
+				<?php }?>
+				<?php }
+}
+?>
+			</ul>
+		</nav>
 	</main>
 
 </body>

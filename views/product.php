@@ -16,12 +16,12 @@ $user = $user->ckCookie();
 require_once("../controllers/productController.php");
 $list = new Product($mysqli);
 $product = $list->getProduct($_GET["product"]);
-
-
+$count = $list->countCart($user["id"]);
 
 
 
 $smarty->assign("cookie", $user["result"]);
 $smarty->assign("product", $product);
 $smarty->assign("user", $user);
+$smarty->assign("count", $count);
 $smarty->display('../templates/product.html');

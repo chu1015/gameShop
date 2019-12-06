@@ -36,55 +36,66 @@
     <main>
         <ul>
             <li>
-                    <div class="table">
-                        <div class="layout-inline row th">
-                            <div class="col col-pro">&emsp;商品</div>
-                            <div class="col col-price align-center ">
-                                單價(NT)
-                            </div>
-                            <div class="col col-qty align-center">數量</div>
-                            <div class="col">總價</div>
-                            <div class="col">取消</div>
+                <div class="table">
+                    <div class="layout-inline row th">
+                        <div class="col col-pro">&emsp;商品</div>
+                        <div class="col col-price align-center ">
+                            單價(NT)
                         </div>
-                        {{foreach $showCart as $value}}
-                        <div class="layout-inline row list{{$value.id}}">
-                            <div class="col col-pro layout-inline">
-                                <p>《 {{$value.gameName}}》</p>
-                            </div>
+                        <div class="col col-qty align-center">數量</div>
+                        <div class="col">總價</div>
+                        <div class="col">取消</div>
+                    </div>
+                    {{foreach $showCart as $value}}
+                    <div class="layout-inline row list{{$value.id}}">
+                        <div class="col col-pro layout-inline">
+                            <p>《 {{$value.gameName}}》</p>
+                        </div>
 
-                            <div class="col col-price col-numeric align-center ">
-                                <p>${{$value.price}}</p>
-                            </div>
+                        <div class="col col-price col-numeric align-center ">
+                            <p class="sprice">${{$value.price}}</p>
+                        </div>
 
-                            <div class="col col-qty layout-inline">
-                                <p>1</p>
-                                <!-- <a href="#" class="qty qty-minus">-</a>
+                        <div class="col col-qty layout-inline">
+                            <select class="quantity" id="quantity{{$value.id}}" name="quantity">
+                                　<option value="1">1</option>
+                                　<option value="2">2</option>
+                                　<option value="3">3</option>
+                                　<option value="4">4</option>
+                                　<option value="5">5</option>
+                            </select>
+                            <!-- <p>1</p> -->
+                            <!-- <a href="#" class="qty qty-minus">-</a>
                                                 <input type="numeric" value="1" />
                                                 <a href="#" class="qty qty-plus">+</a> -->
-                            </div>
-                            <div class="col col-total col-numeric">
-                                <p class="price{{$value.id}}">{{$value.price}}</p>
-                            </div>
-                            <div class="col col-cancel col-numeric">
-                                <button type="button" class="btn btn-danger glyphicon glyphicon-trash"
-                                    onclick="remove(`{{$value.id}}`)"></button>
-                            </div>
                         </div>
-                        {{/foreach}}
-                        <div class="tf">
-                            <div class="row layout-inline">
-                                <div class="col">
-                                    <p>Total</p>
-                                </div>
-                                <div class="col">
-                                    <p class="total">{{$total}}</p>
-                                </div>
-                            </div>
+                        <div class="col col-total col-numeric">
+                            <p class="price price{{$value.id}}">{{$value.price}}</p>
                         </div>
-                        {if isset($showCart)}
-                        <a href="checkBill.php" class="btn btn-update">去結帳</a>
-                        {/if}
+                        <div class="col col-cancel col-numeric">
+                            <button type="button" class="btn btn-danger glyphicon glyphicon-trash"
+                                onclick="remove(`{{$value.id}}`)"></button>
+                        </div>
                     </div>
+                    {{/foreach}}
+                    <div class="tf">
+                        <div class="row layout-inline">
+                            <div class="col">
+                                <p>Total</p>
+                            </div>
+                            <div class="col">
+                                <p class="total">{{$total}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {if isset($showCart)}
+                    {{if $user.permission > 0}}
+                    <a href="checkBill.php" class="btn btn-update">結帳去</a>
+                    {{else}}
+                    <a href="checkBill.php" class="btn btn-update" disabled>你被停權啦</a>
+                    {{/if}}
+                    {/if}
+                </div>
             </li>
         </ul>
     </main>

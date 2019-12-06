@@ -1,40 +1,52 @@
-h1{
-    color: aqua;
-    font-size: 2rem;
+h1 {
+  color: aqua;
+  font-size: 2rem;
 }
 
-h2{
-    color: azure;
-    padding: 10px;
-    line-height: 30px;
-    /* margin: 10px; */
+h2 {
+  color: azure;
+  padding: 10px;
+  line-height: 30px;
+  /* margin: 10px; */
 }
 
-h3{
-    color: blanchedalmond;
-    font-size: 3rem;
+h3 {
+  color: blanchedalmond;
+  font-size: 3rem;
 }
 
-.btn{
-    position: relative;
-    margin-top: 5%;
-    margin-bottom: 10%;
+.btn {
+  position: relative;
+  margin-top: 5%;
+  margin-bottom: 10%;
 }
 
 #cart {
-    position: absolute;
-    display: inline-block;
-    right: 0;
-    top: 0;
-    /* white-space: nowrap; */
-    height: 100%;
-    width: 60px;
-    height: 100%;
-  }
-  
-  #car{
-      height: 100%;
-      width: 60px;
-      height: 100%;
-  }
-  
+  position: absolute;
+  display: inline-block;
+  right: 0;
+  top: 0;
+  /* white-space: nowrap; */
+  height: 100%;
+  width: 60px;
+  height: 100%;
+}
+
+#car {
+  height: 100%;
+  width: 60px;
+  height: 100%;
+}
+
+body {
+  height: 900px;
+}
+pre {
+  background: #31353d;
+  width: 640px;
+  white-space: pre-wrap; /* css-3 */
+  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+  white-space: -pre-wrap; /* Opera 4-6 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word; /* Internet Explorer 5.5+ */
+}

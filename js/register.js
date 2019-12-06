@@ -5,7 +5,7 @@ $(document).ready(function() {
   let nameFlag, acFlag, pwFlag, ckPwFlag;
   let rule1 = /^.+$/;
   let rule2 = /^\w{6,12}$/;
-
+  
   /**
    * 前端註冊暱稱驗證
    */
@@ -48,6 +48,18 @@ $(document).ready(function() {
       $(".errorPw").text("");
       $("#password").css("border-color", "green");
       pwFlag = true;
+      if ($("#ckPassword").val() === $(this).val()) {
+        $(".errorCkPw").text("");
+        $("#ckPassword").css("border-color", "green");
+        ckPwFlag = true;
+      } else {
+        $(".errorCkPw").text("與密碼不符");
+        $(".errorCkPw").css({
+          color: "red",
+          "font-size": "0.8rem"
+        });
+        $("#ckPassword").css("border-color", "red");
+      }
     } else {
       $(".errorPw").text("請輸入6-12位英文或數字的密碼");
       $(".errorPw").css({
@@ -78,10 +90,12 @@ $(document).ready(function() {
    * 註冊按鈕事件
    */
   $("#register").click(function() {
-    if (nameFlag === true 
-      && acFlag === true 
-      && pwFlag === true 
-      && ckPwFlag === true) {
+    if (
+      nameFlag === true &&
+      acFlag === true &&
+      pwFlag === true &&
+      ckPwFlag === true
+    ) {
       $.ajax({
         type: "post",
         url: "../routes/users.php",
@@ -100,7 +114,8 @@ $(document).ready(function() {
                 type: "success",
                 title: "註冊成功",
                 text: "跳轉至登入頁",
-                timer: 1500
+                timer: 1500,
+                allowOutsideClick: false
               })
               .then(function() {
                 window.location.href = "login.html";
@@ -108,12 +123,14 @@ $(document).ready(function() {
           } else if (res["result"] === "帳號已存在") {
             swal.fire({
               type: "error",
-              title: "帳號已存在<3"
+              title: "帳號已存在<3",
+              allowOutsideClick: false
             });
           } else {
             swal.fire({
               type: "error",
-              title: "格式不符<3"
+              title: "格式不符<3",
+              allowOutsideClick: false
             });
           }
         }

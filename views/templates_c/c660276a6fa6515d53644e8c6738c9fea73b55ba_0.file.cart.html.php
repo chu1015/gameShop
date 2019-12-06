@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-12-03 09:34:42
+/* Smarty version 3.1.33, created on 2019-12-06 11:20:14
   from 'C:\xampp\htdocs\chu\gameShop\templates\cart.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5de61e2244e340_93496921',
+  'unifunc' => 'content_5dea2b5e4ad2b1_74009858',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c660276a6fa6515d53644e8c6738c9fea73b55ba' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chu\\gameShop\\templates\\cart.html',
-      1 => 1575362082,
+      1 => 1575627565,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../templates/navbar.html' => 1,
   ),
 ),false)) {
-function content_5de61e2244e340_93496921 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5dea2b5e4ad2b1_74009858 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -88,95 +88,122 @@ echo $_prefixVariable3;?>
     <main>
         <ul>
             <li>
-                    <div class="table">
-                        <div class="layout-inline row th">
-                            <div class="col col-pro">&emsp;商品</div>
-                            <div class="col col-price align-center ">
-                                單價(NT)
-                            </div>
-                            <div class="col col-qty align-center">數量</div>
-                            <div class="col">總價</div>
-                            <div class="col">取消</div>
+                <div class="table">
+                    <div class="layout-inline row th">
+                        <div class="col col-pro">&emsp;商品</div>
+                        <div class="col col-price align-center ">
+                            單價(NT)
                         </div>
-                        <?php ob_start();
+                        <div class="col col-qty align-center">數量</div>
+                        <div class="col">總價</div>
+                        <div class="col">取消</div>
+                    </div>
+                    <?php ob_start();
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['showCart']->value, 'value');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['value']->value) {
 $_prefixVariable4 = ob_get_clean();
 echo $_prefixVariable4;?>
 
-                        <div class="layout-inline row list<?php ob_start();
+                    <div class="layout-inline row list<?php ob_start();
 echo $_smarty_tpl->tpl_vars['value']->value['id'];
 $_prefixVariable5 = ob_get_clean();
 echo $_prefixVariable5;?>
 ">
-                            <div class="col col-pro layout-inline">
-                                <p>《 <?php ob_start();
+                        <div class="col col-pro layout-inline">
+                            <p>《 <?php ob_start();
 echo $_smarty_tpl->tpl_vars['value']->value['gameName'];
 $_prefixVariable6 = ob_get_clean();
 echo $_prefixVariable6;?>
 》</p>
-                            </div>
+                        </div>
 
-                            <div class="col col-price col-numeric align-center ">
-                                <p>$<?php ob_start();
+                        <div class="col col-price col-numeric align-center ">
+                            <p class="sprice">$<?php ob_start();
 echo $_smarty_tpl->tpl_vars['value']->value['price'];
 $_prefixVariable7 = ob_get_clean();
 echo $_prefixVariable7;?>
 </p>
-                            </div>
+                        </div>
 
-                            <div class="col col-qty layout-inline">
-                                <p>1</p>
-                                <!-- <a href="#" class="qty qty-minus">-</a>
-                                                <input type="numeric" value="1" />
-                                                <a href="#" class="qty qty-plus">+</a> -->
-                            </div>
-                            <div class="col col-total col-numeric">
-                                <p class="price<?php ob_start();
+                        <div class="col col-qty layout-inline">
+                            <select class="quantity" id="quantity<?php ob_start();
 echo $_smarty_tpl->tpl_vars['value']->value['id'];
 $_prefixVariable8 = ob_get_clean();
 echo $_prefixVariable8;?>
-"><?php ob_start();
-echo $_smarty_tpl->tpl_vars['value']->value['price'];
+" name="quantity">
+                                　<option value="1">1</option>
+                                　<option value="2">2</option>
+                                　<option value="3">3</option>
+                                　<option value="4">4</option>
+                                　<option value="5">5</option>
+                            </select>
+                            <!-- <p>1</p> -->
+                            <!-- <a href="#" class="qty qty-minus">-</a>
+                                                <input type="numeric" value="1" />
+                                                <a href="#" class="qty qty-plus">+</a> -->
+                        </div>
+                        <div class="col col-total col-numeric">
+                            <p class="price price<?php ob_start();
+echo $_smarty_tpl->tpl_vars['value']->value['id'];
 $_prefixVariable9 = ob_get_clean();
 echo $_prefixVariable9;?>
-</p>
-                            </div>
-                            <div class="col col-cancel col-numeric">
-                                <button type="button" class="btn btn-danger glyphicon glyphicon-trash"
-                                    onclick="remove(`<?php ob_start();
-echo $_smarty_tpl->tpl_vars['value']->value['id'];
+"><?php ob_start();
+echo $_smarty_tpl->tpl_vars['value']->value['price'];
 $_prefixVariable10 = ob_get_clean();
 echo $_prefixVariable10;?>
-`)"></button>
-                            </div>
+</p>
                         </div>
-                        <?php ob_start();
+                        <div class="col col-cancel col-numeric">
+                            <button type="button" class="btn btn-danger glyphicon glyphicon-trash"
+                                onclick="remove(`<?php ob_start();
+echo $_smarty_tpl->tpl_vars['value']->value['id'];
+$_prefixVariable11 = ob_get_clean();
+echo $_prefixVariable11;?>
+`)"></button>
+                        </div>
+                    </div>
+                    <?php ob_start();
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
-$_prefixVariable11 = ob_get_clean();
-echo $_prefixVariable11;?>
-
-                        <div class="tf">
-                            <div class="row layout-inline">
-                                <div class="col">
-                                    <p>Total</p>
-                                </div>
-                                <div class="col">
-                                    <p class="total"><?php ob_start();
-echo $_smarty_tpl->tpl_vars['total']->value;
 $_prefixVariable12 = ob_get_clean();
 echo $_prefixVariable12;?>
+
+                    <div class="tf">
+                        <div class="row layout-inline">
+                            <div class="col">
+                                <p>Total</p>
+                            </div>
+                            <div class="col">
+                                <p class="total"><?php ob_start();
+echo $_smarty_tpl->tpl_vars['total']->value;
+$_prefixVariable13 = ob_get_clean();
+echo $_prefixVariable13;?>
 </p>
-                                </div>
                             </div>
                         </div>
-                        <?php if (isset($_smarty_tpl->tpl_vars['showCart']->value)) {?>
-                        <a href="checkBill.php" class="btn btn-update">去結帳</a>
-                        <?php }?>
                     </div>
+                    <?php if (isset($_smarty_tpl->tpl_vars['showCart']->value)) {?>
+                    <?php ob_start();
+if ($_smarty_tpl->tpl_vars['user']->value['permission'] > 0) {
+$_prefixVariable14 = ob_get_clean();
+echo $_prefixVariable14;?>
+
+                    <a href="checkBill.php" class="btn btn-update">結帳去</a>
+                    <?php ob_start();
+} else {
+$_prefixVariable15 = ob_get_clean();
+echo $_prefixVariable15;?>
+
+                    <a href="checkBill.php" class="btn btn-update" disabled>你被停權啦</a>
+                    <?php ob_start();
+}
+$_prefixVariable16 = ob_get_clean();
+echo $_prefixVariable16;?>
+
+                    <?php }?>
+                </div>
             </li>
         </ul>
     </main>

@@ -1,15 +1,20 @@
 <header>
     <div id="logo"><a href="index.php"><img src="../img/icon.ico" alt="Homepage"></a></div>
     <div id="cd-hamburger-menu"><a class="cd-img-replace" href="#0">Menu</a></div>
+    {{if isset($user.permission)}}
+    <div id="cart"><span class="badge">{{$count}}</span></div>
     <div id="cart"><a href="cart.php"><img id="car" src="../img/cd-cart.svg"></a></div>
+    {{/if}}
     <!-- <a id="cd-cart-trigger"><a class="cd-img-replace" href="cart.php"></a></div> -->
 </header>
 
 <nav id="main-nav">
     <ul>
+        {{if $user.level === 1}}
         <li><a href="manager.php">Manager</a></li>
+        {{/if}}
         <li><a href="index.php">Home</a></li>
-        <li><a href="#0">Services</a></li>
+        <!-- <li><a href="#0">Services</a></li> -->
         {if {{$user.account}} }
         <li> <a href="">{{$user.nickName}}</a></li>
         <li><a href="#0" id="logout">登出</a></li>

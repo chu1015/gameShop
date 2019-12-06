@@ -27,12 +27,16 @@
     <main>
         <ul id="cd-gallery-items" class="cd-container">
             <li>
-                <img src="../img/{{$product.img}}" alt="Preview image">
+                <img src="{{$product.img}}" alt="Preview image">
             </li>
             <h1>{{$product.name}}</h1>
-            <h2>{{$product.descript}}</h2>
+            <pre><h2>{{$product.descript}}</h2></pre>
             <h3>NT${{$product.price}}元</h3>
-            <button id="product" class="btn btn-info btn-large" type="button" onclick="product(`{{$product.id}}`)">加進購物車</button>
+            {{if isset($user.permission)}}
+            <button id="product" class="btn btn-info btn-large" type="button" onclick="product(`{{$product.id}}`, `{{$user.permission}}`)">加進購物車</button>
+            {{else}}
+            <button id="product" class="btn btn-info btn-large" type="button" onclick="guest()">加進購物車</button>
+            {{/if}}
         </ul> <!-- cd-gallery-items -->
     </main>
 

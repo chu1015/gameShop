@@ -52,6 +52,11 @@ h3{
   height: 100%;
 }
 
+body {
+  height: 900px;
+}
+
+
 /*********************************/
 html {
     background: #bbc3c6;

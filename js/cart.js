@@ -61,6 +61,12 @@ $(document).ready(function() {
       input.val(100);
     }
   });
+
+  $(".quantity").change(function(){
+    total = 
+    console.log($(this).val());
+    console.log($(this).parent().parent().find(".sprice").html());
+  })
 });
 
 function remove(e) {
@@ -78,23 +84,26 @@ function remove(e) {
           .fire({
             type: "success",
             title: "商品已移除",
-            timer: 1000
+            timer: 1000,
+            allowOutsideClick:false,
           })
           .then(function() {
             // console.log(parseInt($(".total").text()));
             // console.log(parseInt($(".price" + e ).text()));
             // $(".total").text() = "";
             total = $(".total").text() - $(".price" + e ).text();
+            $(".badge").text($(".badge").text() - 1 );
             // console.log(total);
             $(".total").text(total);
             // console.log($(".total").text(total));
 
-            $(".list" + e).fadeOut();
+            $(".list" + e).fadeOut("fast");
           });
       } else {
         Swal.fire({
             type: "error",
-            title: "移除失敗"
+            title: "移除失敗",
+            allowOutsideClick: false
           }).then(function () {
               window.location.href = "cart.php"
             })

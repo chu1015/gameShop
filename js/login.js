@@ -53,14 +53,16 @@ $(document).ready(function(){
                             type:"success",
                             title:"登入成功",
                             text:"跳轉回首頁",
-                            timer:1500
+                            timer:1500,
+                            allowOutsideClick: false
                         }).then(function(){
                             window.location.href = "../views/index.php";
                         })
                     } else {
                         swal.fire({
                             type: "error",
-                            title: "帳號或密碼錯誤"
+                            title: "帳號或密碼錯誤",
+                            allowOutsideClick: false
                         }).then(function(){
                             $("#account").val("");
                             $("#password").val("");

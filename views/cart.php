@@ -11,18 +11,24 @@ $user = new User($mysqli);
 $user = $user->ckCookie();
 ##引用Product相關類別
 require_once "../controllers/productController.php";
-$product = new Product($mysqli);
-// $product = $list->getProduct($_GET["product"]);
+if (isset($user["permission"])) {
 
-$showCart = $product->showCart($user["id"]);
-$total = 0;
-if (isset($showCart["result"])) {
-    $showCart = null;
-}
-    for ($i = 0; $i < count($showCart); $i++) {
-        $total = $total + $showCart[$i]['price'];
+    $product = new Product($mysqli);
+    // $product = $list->getProduct($_GET["product"]);
+
+    $showCart = $product->showCart($user["id"]);
+    $total = 0;
+    if (isset($showCart["result"])) {
+        $showCart = null;
+    } else {
+        for ($i = 0; $i < count($showCart); $i++) {
+            $total = $total + $showCart[$i]['price'];
+        }
     }
-
+} else {
+    header("Location:../templates/login.html");
+}
+$count = $product->countCart($user["id"]);
 
 // var_dump ($total);
 
@@ -31,4 +37,5 @@ $smarty->assign("total", $total);
 $smarty->assign("showCart", $showCart);
 $smarty->assign("cookie", $user["result"]);
 $smarty->assign("user", $user);
+$smarty->assign("count", $count);
 $smarty->display('../templates/cart.html');

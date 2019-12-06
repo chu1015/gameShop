@@ -1,7 +1,14 @@
 <?php
+
 require_once("token.php");
+
 class User extends Token
 {
+    public $list = 10;
+
+    /**
+     * 註冊
+     */
     public function register($origin)
     {
         $acFlag = preg_match('/^\w{6,12}$/', $origin["account"]);
@@ -15,14 +22,30 @@ class User extends Token
         }
 
         $account = $origin["account"];
-        $sql = "SELECT COUNT(*) as amount FROM `users` WHERE account = $account";
-        $stmt = $this->mysqli->query($sql);
-        $result = $stmt->fetch_assoc();
-        if ($result) {
+        $sql = "SELECT COUNT(*) as amount FROM `users` WHERE account = ?";
+        $stmt = $this->mysqli->prepare($sql);
+        $stmt->bind_param("s", $origin["account"]);
+        $result = $stmt->execute();
+        $result = $stmt->get_result();
+        $result = $result->fetch_assoc();
+        if ($result["amount"] > 0) {
             $res["result"] = "帳號已存在";
             return $res;
         }
-
+        // $sql = "SELECT COUNT(*) as amount FROM `users` WHERE account = $account";
+        // $result = $this->mysqli->query($sql);
+        // var_dump($result["amount"]);
+        
+        // $sql = "SELECT * FROM `users` WHERE account = ?";
+        // $stmt = $this->mysqli->prepare($sql);
+        // $stmt->bind_param("s", $origin["account"]);
+        // $stmt->execute();
+        // $result = $stmt->get_result();
+        // if (($result->num_rows > 0)) {
+        //     $res["result"] = "帳號已存在";
+        //     return $res;
+        // }
+        
         $pwd = password_hash($origin["password"], PASSWORD_DEFAULT);
         $sql = "INSERT INTO users(nickName, account, password)" . "VALUES (?,?,?)";
         $stmt = $this->mysqli->prepare($sql);
@@ -37,6 +60,9 @@ class User extends Token
         }
     }
 
+    /**
+     * 登入
+     */
     public function login($origin)
     {
         $acFlag = preg_match('/^\w{6,12}$/', $origin["account"]);
@@ -73,6 +99,9 @@ class User extends Token
             return $res;
         }
     }
+    /**
+     * 登出
+     */
 
     public function logout()
     {
@@ -81,15 +110,15 @@ class User extends Token
         $stmt->bind_param("s", $_COOKIE["token"]);
         $stmt->execute();
         $result = $stmt->get_result();
-        
+
         $user = $result->fetch_object();
         $id = $user->id;
-        $token = NULL;
+        $token = null;
         $sql = "UPDATE `users` SET `token` = ? WHERE `id` = ?";
         $stmt = $this->mysqli->prepare($sql);
         $stmt->bind_param("si", $token, $id);
         $msg = $stmt->execute();
-        
+
         if ($msg) {
             setcookie("token", "", time() - 3600, "/");
             $res["result"] = true;
@@ -97,6 +126,86 @@ class User extends Token
         } else {
             $res["result"] = false;
             return $res;
+        }
+    }
+    ##計算管理會員有幾頁
+    public function createPage()
+    {
+        $sql = "SELECT COUNT(*) as total FROM `users` WHERE `level` = 0";
+        $result = $this->mysqli->query($sql);
+        $res = $result->fetch_assoc();
+        $res = ceil($res['total'] / $this->list);
+        return $res;
+    }
+
+    /**
+     * 製作管理會員分頁
+     */
+    public function showpage($page)
+    {
+        $pages = isset($page) ? $page : 1;
+        $start = ($pages - 1) * $this->list;
+        $sql = "SELECT * FROM `users` WHERE `level` = 0 ORDER BY `id` LIMIT {$start}, {$this->list}";
+        $result = $this->mysqli->query($sql);
+        while ($row = $result->fetch_assoc()) {
+            $all[] = $row;
+        }
+        return $all;
+    }
+
+    /**
+     * 會員清單
+     */
+
+    public function userList()
+    {
+        $user = $this->ckCookie();
+        if ($user["level"] === 1) {
+            $sql = "SELECT * FROM `users` WHERE `level` = 0";
+            $result = $this->mysqli->query($sql);
+            // $stmt->bind_param("i", 0);
+            // $stmt->execute();
+            // $result = $stmt->get_result();
+            while ($row = $result->fetch_assoc()) {
+                $userList[] = $row;
+            }
+            return $userList;
+        } else {
+            $res["result"] = false;
+            return $res;
+        }
+    }
+    /**
+     * 會員停復權
+     */
+
+    public function Suspension($member)
+    {
+        $this->ckCookie();
+        if ($member["permission"] === "1") {
+            $sql = "UPDATE `users` SET `permission` = '0' WHERE `users`.`id` = ?";
+            $stmt = $this->mysqli->prepare($sql);
+            $stmt->bind_param("i", $member["userId"]);
+            $msg = $stmt->execute();
+            if ($msg) {
+                $res["result"] = true;
+                return $res;
+            } else {
+                $res["result"] = false;
+                return $res;
+            }
+        } else {
+            $sql = "UPDATE `users` SET `permission` = '1' WHERE `users`.`id` = ?";
+            $stmt = $this->mysqli->prepare($sql);
+            $stmt->bind_param("i", $member["userId"]);
+            $msg = $stmt->execute();
+            if ($msg) {
+                $res["result"] = true;
+                return $res;
+            } else {
+                $res["result"] = false;
+                return $res;
+            }
         }
     }
 

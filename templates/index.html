@@ -20,23 +20,36 @@
 	{if {{$cookie}} == "error" }
 	<script src="../js/swal.js"></script>
 	{/if}
-	
+
 
 </head>
 
 <body>
-		{{include file="../templates/navbar.html"}}
+	{{include file="../templates/navbar.html"}}
 	<main>
 		<ul id="cd-gallery-items" class="cd-container">
 			{foreach $all as $value}
 			<li>
-				<a href="../views/product.php?product={{$value.id}}"><img src="../img/{{$value.img}}" alt="Preview image"></a>
+				<a href="../views/product.php?product={{$value.id}}"><img src="{{$value.img}}" alt="Preview image"></a>
 				<!-- <img onclick="product(`{{$value.id}}`)" src="../img/{{$value.img}}" alt="Preview image"> -->
-					<br>
-					<h6>{{$value.name}}</h6>
+				<br>
+				<h6>{{$value.name}}</h6>
 			</li>
 			{/foreach}
 		</ul> <!-- cd-gallery-items -->
+		<nav class="npage" aria-label="Page navigation example">
+			<ul class="pagination">
+				{for $num=1 to $res}
+				{if $page == $num}
+				<li class="page-item"><a class="page-link btn btn-outline-light disabled" href="?page={{$num}}">{{$num}}</a>
+				</li>
+				{else}
+				<li class="page-item"><a class="page-link btn btn-outline-light active" href="?page={{$num}}">{{$num}}</a>
+				</li>
+				{/if}
+				{/for}
+			</ul>
+		</nav>
 	</main>
 
 </body>
