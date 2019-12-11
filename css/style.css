@@ -19,6 +19,7 @@ body {
   font-family: "PT Sans", sans-serif;
   color: #31353d;
   background-color: #eeeff7;
+  /* height: 900px; */
 }
 body.overflow-hidden {
   /* prevent 2 vertical scrollbars on ie and firefox when the cart is visible */

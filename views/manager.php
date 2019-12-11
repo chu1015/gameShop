@@ -17,13 +17,14 @@ if ($user["level"] > 0) {
     $count = $product->countCart($user["id"]);
     $res1 = $product->controlProduct();
     if (isset($_GET["product"])) {
-        if ($res1 >= $_GET["product"] && $_GET["product"] > 0) {
-            $productPage = $_GET["product"];
+        $page = (Int)($_GET["product"]);
+        if ($res1 >= $page && $page > 0) {
+            $productPage = $page;
         } else {
             $productPage = 1;
         }
     } else {
-        $_GET["product"] = 1;
+        $page = 1;
         $productPage = 1;
     }
     $all = $product->controlProductShow($productPage);
@@ -32,13 +33,14 @@ if ($user["level"] > 0) {
     $userList = $userClass->userList();
     $res2 = $userClass->createPage();
     if (isset($_GET["user"])) {
-        if ($res2 >= $_GET["user"] && $_GET["user"] > 0) {
-            $userPage = $_GET["user"];
+        $uPage = (Int)($_GET["user"]);
+        if ($res2 >= $uPage && $uPage > 0) {
+            $userPage = $uPage;
         } else {
             $userPage = 1;
         }
     } else {
-        $_GET["user"] = 1;
+        $uPage = 1;
         $userPage = 1;
     }
     $userList = $userClass->showpage($userPage);

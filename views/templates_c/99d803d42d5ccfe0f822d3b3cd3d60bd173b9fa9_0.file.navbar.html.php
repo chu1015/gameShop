@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-12-06 10:39:20
+/* Smarty version 3.1.33, created on 2019-12-10 02:13:02
   from 'C:\xampp\htdocs\chu\gameShop\templates\navbar.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5dea21c857c573_21649580',
+  'unifunc' => 'content_5deef11e5b7b62_64462588',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '99d803d42d5ccfe0f822d3b3cd3d60bd173b9fa9' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chu\\gameShop\\templates\\navbar.html',
-      1 => 1575625152,
+      1 => 1575940371,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5dea21c857c573_21649580 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5deef11e5b7b62_64462588 (Smarty_Internal_Template $_smarty_tpl) {
 ?><header>
     <div id="logo"><a href="index.php"><img src="../img/icon.ico" alt="Homepage"></a></div>
     <div id="cd-hamburger-menu"><a class="cd-img-replace" href="#0">Menu</a></div>
@@ -29,12 +29,12 @@ if (isset($_smarty_tpl->tpl_vars['user']->value['permission'])) {
 $_prefixVariable1 = ob_get_clean();
 echo $_prefixVariable1;?>
 
-    <div id="cart"><span class="badge"><?php ob_start();
+    <div id="cart"><a href="cart.php"><img id="car" src="../img/cd-cart.svg"></a></div>
+    <a href="cart.php"><div id="cart"><span class="badge"><?php ob_start();
 echo $_smarty_tpl->tpl_vars['count']->value;
 $_prefixVariable2 = ob_get_clean();
 echo $_prefixVariable2;?>
-</span></div>
-    <div id="cart"><a href="cart.php"><img id="car" src="../img/cd-cart.svg"></a></div>
+</span></div></a>
     <?php ob_start();
 }
 $_prefixVariable3 = ob_get_clean();
@@ -65,7 +65,7 @@ ob_start();
 echo $_prefixVariable6;
 $_prefixVariable7 = ob_get_clean();
 if ($_prefixVariable7) {?>
-        <li> <a href=""><?php ob_start();
+        <li> <a href="userCenter.php"><?php ob_start();
 echo $_smarty_tpl->tpl_vars['user']->value['nickName'];
 $_prefixVariable8 = ob_get_clean();
 echo $_prefixVariable8;?>

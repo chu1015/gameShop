@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-12-06 08:49:50
+/* Smarty version 3.1.33, created on 2019-12-11 07:00:52
   from 'C:\xampp\htdocs\chu\gameShop\templates\product.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5dea081e4f3f65_14935551',
+  'unifunc' => 'content_5df086144701c1_07690008',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'bf8ff970bbeb5f1a338c911a0f51d7200e24b866' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chu\\gameShop\\templates\\product.html',
-      1 => 1575618565,
+      1 => 1576044040,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../templates/navbar.html' => 1,
   ),
 ),false)) {
-function content_5dea081e4f3f65_14935551 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5df086144701c1_07690008 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -35,16 +35,17 @@ echo $_smarty_tpl->tpl_vars['product']->value['name'];
 $_prefixVariable1 = ob_get_clean();
 echo $_prefixVariable1;?>
 </title>
+    <?php echo '<script'; ?>
+ src="https://cdn.jsdelivr.net/npm/sweetalert2@8"><?php echo '</script'; ?>
+> 
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<?php echo '<script'; ?>
  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"><?php echo '</script'; ?>
 >
-    <?php echo '<script'; ?>
- src="https://cdn.jsdelivr.net/npm/sweetalert2@8"><?php echo '</script'; ?>
->
     <link rel="stylesheet" href="../css/reset.css"> <!-- CSS reset -->
     <link rel="stylesheet" href="../css/style.css"> <!-- Gem style -->
-    <link rel="stylesheet" href="../css/product.css"> <!-- Gem style -->
+    <link rel="stylesheet" href="../css/product.css"> 
+    
     <?php echo '<script'; ?>
  src="../js/modernizr.js"><?php echo '</script'; ?>
 > <!-- Modernizr -->
@@ -67,7 +68,8 @@ if ($_prefixVariable3 == "error") {?>
 	<?php echo '<script'; ?>
  src="../js/swal.js"><?php echo '</script'; ?>
 >
-	<?php }?>
+    <?php }?>
+
 </head>
 
 <body>
@@ -105,25 +107,41 @@ if (isset($_smarty_tpl->tpl_vars['user']->value['permission'])) {
 $_prefixVariable9 = ob_get_clean();
 echo $_prefixVariable9;?>
 
-            <button id="product" class="btn btn-info btn-large" type="button" onclick="product(`<?php ob_start();
-echo $_smarty_tpl->tpl_vars['product']->value['id'];
+            <?php ob_start();
+if ($_smarty_tpl->tpl_vars['product']->value['quantity'] == 0) {
 $_prefixVariable10 = ob_get_clean();
 echo $_prefixVariable10;?>
-`, `<?php ob_start();
-echo $_smarty_tpl->tpl_vars['user']->value['permission'];
-$_prefixVariable11 = ob_get_clean();
-echo $_prefixVariable11;?>
-`)">加進購物車</button>
+
+            <button id="product" class="btn btn-info btn-large" type="button" disabled>缺貨中</button>
             <?php ob_start();
 } else {
+$_prefixVariable11 = ob_get_clean();
+echo $_prefixVariable11;?>
+
+            <button id="product" class="btn btn-info btn-large" type="button" onclick="product(`<?php ob_start();
+echo $_smarty_tpl->tpl_vars['product']->value['id'];
 $_prefixVariable12 = ob_get_clean();
 echo $_prefixVariable12;?>
+`, `<?php ob_start();
+echo $_smarty_tpl->tpl_vars['user']->value['permission'];
+$_prefixVariable13 = ob_get_clean();
+echo $_prefixVariable13;?>
+`)">加進購物車</button>
+            <?php ob_start();
+}
+$_prefixVariable14 = ob_get_clean();
+echo $_prefixVariable14;?>
+
+            <?php ob_start();
+} else {
+$_prefixVariable15 = ob_get_clean();
+echo $_prefixVariable15;?>
 
             <button id="product" class="btn btn-info btn-large" type="button" onclick="guest()">加進購物車</button>
             <?php ob_start();
 }
-$_prefixVariable13 = ob_get_clean();
-echo $_prefixVariable13;?>
+$_prefixVariable16 = ob_get_clean();
+echo $_prefixVariable16;?>
 
         </ul> <!-- cd-gallery-items -->
     </main>

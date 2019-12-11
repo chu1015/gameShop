@@ -7,19 +7,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="../img/icon.ico" type="image/x-icon">
     <title>{{$product.name}}</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script> 
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <link rel="stylesheet" href="../css/reset.css"> <!-- CSS reset -->
     <link rel="stylesheet" href="../css/style.css"> <!-- Gem style -->
-    <link rel="stylesheet" href="../css/product.css"> <!-- Gem style -->
+    <link rel="stylesheet" href="../css/product.css"> 
+    
     <script src="../js/modernizr.js"></script> <!-- Modernizr -->
     <script src="../js/main.js"></script> <!-- Gem jQuery -->
     <script src="../js/product.js"></script>
     <script src="../js/navbar.js"></script>
     {if {{$cookie}} == "error" }
 	<script src="../js/swal.js"></script>
-	{/if}
+    {/if}
+
 </head>
 
 <body>
@@ -33,7 +35,11 @@
             <pre><h2>{{$product.descript}}</h2></pre>
             <h3>NT${{$product.price}}元</h3>
             {{if isset($user.permission)}}
+            {{if $product.quantity == 0}}
+            <button id="product" class="btn btn-info btn-large" type="button" disabled>缺貨中</button>
+            {{else}}
             <button id="product" class="btn btn-info btn-large" type="button" onclick="product(`{{$product.id}}`, `{{$user.permission}}`)">加進購物車</button>
+            {{/if}}
             {{else}}
             <button id="product" class="btn btn-info btn-large" type="button" onclick="guest()">加進購物車</button>
             {{/if}}

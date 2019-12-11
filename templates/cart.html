@@ -13,8 +13,6 @@
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <!-- sweetalert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <link rel="stylesheet" href="../css/reset.css"> <!-- CSS reset -->
@@ -38,12 +36,13 @@
             <li>
                 <div class="table">
                     <div class="layout-inline row th">
-                        <div class="col col-pro">&emsp;商品</div>
+                        <div class="col col-pro ">&emsp;商品</div>
                         <div class="col col-price align-center ">
                             單價(NT)
                         </div>
                         <div class="col col-qty align-center">數量</div>
                         <div class="col">總價</div>
+                        <div class="col col-status">狀態</div>
                         <div class="col">取消</div>
                     </div>
                     {{foreach $showCart as $value}}
@@ -53,25 +52,42 @@
                         </div>
 
                         <div class="col col-price col-numeric align-center ">
-                            <p class="sprice">${{$value.price}}</p>
+                            <p class="sprice">{{$value.price}}</p>
                         </div>
 
                         <div class="col col-qty layout-inline">
-                            <select class="quantity" id="quantity{{$value.id}}" name="quantity">
-                                　<option value="1">1</option>
-                                　<option value="2">2</option>
-                                　<option value="3">3</option>
-                                　<option value="4">4</option>
-                                　<option value="5">5</option>
+                            {{if $value.quantity > 5}}
+                            <select class="quantity" id="{{$value.id}}" name="quantity">
+                                <option value="{{$value.amount}}" selected disabled hidden>{{$value.amount}}</option>
+                                {{for $i =1 to 5}}
+                                <option class="option" value="{{$i}}">{{$i}}</option>
+                                {{/for}}
                             </select>
+                            {{else}}
+                            <select class="quantity" id="{{$value.id}}" name="quantity">
+                                <option value="{{$value.amount}}" selected disabled hidden>{{$value.amount}}</option>
+                                {{for $i =1 to {{$value.quantity}}}}
+                                <option class="option" value="{{$i}}">{{$i}}</option>
+                                {{/for}}
+                            </select>
+                            {{/if}}
                             <!-- <p>1</p> -->
                             <!-- <a href="#" class="qty qty-minus">-</a>
                                                 <input type="numeric" value="1" />
                                                 <a href="#" class="qty qty-plus">+</a> -->
                         </div>
                         <div class="col col-total col-numeric">
-                            <p class="price price{{$value.id}}">{{$value.price}}</p>
+                            <p class="price price{{$value.id}} subtotal">{{$value.subtotal}}</p>
                         </div>
+
+                        <div class="col col-status">
+                                {{if {{$value.status === 1}} }}
+                                    <p class="up">上架</p>
+                                    {{else}}
+                                    <p class="down">停賣</p>
+                                    {{/if}}
+                                </div>
+
                         <div class="col col-cancel col-numeric">
                             <button type="button" class="btn btn-danger glyphicon glyphicon-trash"
                                 onclick="remove(`{{$value.id}}`)"></button>
@@ -90,9 +106,11 @@
                     </div>
                     {if isset($showCart)}
                     {{if $user.permission > 0}}
-                    <a href="checkBill.php" class="btn btn-update">結帳去</a>
+                    <a href="checkBill.php"  class="btn btn-update">結帳去</a>
+                    <!-- <button type="button" class="btn btn-update">結帳去</button> -->
                     {{else}}
-                    <a href="checkBill.php" class="btn btn-update" disabled>你被停權啦</a>
+                    <!-- <a href="checkBill.php" class="btn btn-update" disabled>你被停權啦</a> -->
+                    <button type="button" class="btn btn-update" disabled>你被停權啦</button>
                     {{/if}}
                     {/if}
                 </div>

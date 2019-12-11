@@ -4,7 +4,7 @@ require_once("token.php");
 
 class User extends Token
 {
-    public $list = 10;
+    public $list = 5;
 
     /**
      * 註冊

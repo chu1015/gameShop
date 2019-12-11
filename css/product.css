@@ -1,3 +1,4 @@
+
 h1 {
   color: aqua;
   font-size: 2rem;
@@ -38,9 +39,7 @@ h3 {
   height: 100%;
 }
 
-body {
-  height: 900px;
-}
+
 pre {
   background: #31353d;
   width: 640px;
@@ -49,4 +48,15 @@ pre {
   white-space: -pre-wrap; /* Opera 4-6 */
   white-space: -o-pre-wrap; /* Opera 7 */
   word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
+
+.badge{
+  background-color: red;
+  font-size: 20px;
+}
+
+
+body {
+  height: 900px;
+  background-color: #31353d;
 }

@@ -17,14 +17,15 @@ $res = $product->createPage();
 $count = $product->countCart($user["id"]);
 
 if(isset($_GET["page"])){
-    if( $res >= $_GET["page"] && $_GET["page"] > 0){
-        $page = $_GET["page"];
+    $ipage = (int)($_GET["page"]);
+    if( $res >= $ipage && $ipage > 0){
+        $page = $ipage;
     }else{
         $page = 1;
     }
     
 }else{
-    $_GET["page"] = 1;
+    $ipage = 1;
     $page = 1;
 }
 $all = $product->showpage($page);

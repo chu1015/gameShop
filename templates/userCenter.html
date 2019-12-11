@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>管理頁</title>
+    <link rel="icon" href="../img/icon.ico" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/reset.css"> <!-- CSS reset -->
+    <link rel="stylesheet" href="../css/style.css"> <!-- Gem style -->
+    <link rel="stylesheet" href="../css/userCenter.css">
+    <script src="../js/modernizr.js"></script> <!-- Modernizr -->
+    <script src="../js/main.js"></script> <!-- Gem jQuery -->
+    <script src="../js/navbar.js"></script>
+    {if {{$cookie}} == "error" }
+    <script src="../js/swal.js"></script>
+    {/if}
+
+
+</head>
+
+<body>
+    {{include file="../templates/navbar.html"}}
+    <ul>
+        <div id="productList" class="tabcontent">
+            <table class="table table-striped table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">購買商品</th>
+                        <th scope="col">數量</th>
+                        <th scope="col">單價</th>
+                        <th scope="col">單筆小計</th>
+                        <th scope="col">到貨商店</th>
+                        <th scope="col">購買時間</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{foreach $shopList as $value}}
+                    <tr>
+                        <td scope="row">{{$value.gameName}}</td>
+                        <td>{{$value.amount}}</td>
+                        <td>{{$value.price}}</td>
+                        <td>{{$value.subtotal}}</td>
+                        <td>{{$value.store}}</td>
+                        <td>{{$value.date}}</td>
+                    </tr>
+                    {{/foreach}}
+                </tbody>
+            </table>
+            <nav class="npage" aria-label="Page navigation example">
+                <ul class="pagination">
+                    {for $num=1 to $res}
+                    {if $page == $num}
+                    <li class="page-item"><a class="page-link btn btn-outline-light disabled"
+                            href="?page={{$num}}">{{$num}}</a>
+                    </li>
+                    {else}
+                    <li class="page-item"><a class="page-link btn btn-outline-light active"
+                            href="?page={{$num}}">{{$num}}</a>
+                    </li>
+                    {/if}
+                    {/for}
+                </ul>
+            </nav>
+        </div>
+    </ul>
+</body>
+
+</html>

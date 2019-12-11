@@ -15,14 +15,13 @@ if (isset($user["permission"])) {
 
     $product = new Product($mysqli);
     // $product = $list->getProduct($_GET["product"]);
-
     $showCart = $product->showCart($user["id"]);
     $total = 0;
     if (isset($showCart["result"])) {
         $showCart = null;
     } else {
         for ($i = 0; $i < count($showCart); $i++) {
-            $total = $total + $showCart[$i]['price'];
+            $total = $total + $showCart[$i]['subtotal'];
         }
     }
 } else {
@@ -35,6 +34,7 @@ $count = $product->countCart($user["id"]);
 // $smarty->assign("product", $product);
 $smarty->assign("total", $total);
 $smarty->assign("showCart", $showCart);
+// $smarty->assign("qty", $qty);
 $smarty->assign("cookie", $user["result"]);
 $smarty->assign("user", $user);
 $smarty->assign("count", $count);

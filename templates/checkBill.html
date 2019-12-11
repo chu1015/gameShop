@@ -52,10 +52,10 @@
                 </div>
 
                 <div class="col col-qty layout-inline">
-                    <p>1</p>
+                    <p>{{$value.amount}}</p>
                 </div>
                 <div class="col col-total col-numeric">
-                    <p class="price align-center">${{$value.price}}</p>
+                    <p class="price align-center">${{$value.subtotal}}</p>
                 </div>
             </div>
             {{/foreach}}
@@ -104,7 +104,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                                <button type="button" onclick="bill()" class="btn btn-success"
+                                <button type="button" class="btn btn-success checkout"
                                     data-dismiss="modal">確認購買</button>
                             </div>
                         </div>

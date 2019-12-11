@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-12-05 06:39:42
+/* Smarty version 3.1.33, created on 2019-12-10 10:25:16
   from 'C:\xampp\htdocs\chu\gameShop\templates\manager.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5de8981e6d8757_59765939',
+  'unifunc' => 'content_5def647ca913d6_77672167',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '141edbcbcf2e0631de6c3f546ba73acc0ef57c61' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chu\\gameShop\\templates\\manager.html',
-      1 => 1575524379,
+      1 => 1575969913,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../templates/navbar.html' => 1,
   ),
 ),false)) {
-function content_5de8981e6d8757_59765939 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5def647ca913d6_77672167 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <html lang="zh" class="no-js">
 
@@ -94,7 +94,9 @@ echo $_prefixVariable3;?>
                         <th scope="col">#</th>
                         <th scope="col">品名</th>
                         <th scope="col">價格</th>
+                        <th scope="col">庫存</th>
                         <th scope="col">上下架</th>
+                        <th scope="col">商品修改</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -111,100 +113,224 @@ echo $_smarty_tpl->tpl_vars['value']->value['id'];
 $_prefixVariable5 = ob_get_clean();
 echo $_prefixVariable5;?>
 </th>
-                        <td><?php ob_start();
-echo $_smarty_tpl->tpl_vars['value']->value['name'];
+                        <td id="gameName<?php ob_start();
+echo $_smarty_tpl->tpl_vars['value']->value['id'];
 $_prefixVariable6 = ob_get_clean();
 echo $_prefixVariable6;?>
-</td>
-                        <td><?php ob_start();
-echo $_smarty_tpl->tpl_vars['value']->value['price'];
+"><?php ob_start();
+echo $_smarty_tpl->tpl_vars['value']->value['name'];
 $_prefixVariable7 = ob_get_clean();
 echo $_prefixVariable7;?>
 </td>
-                        <?php ob_start();
-echo $_smarty_tpl->tpl_vars['value']->value['status'] === "1";
+                        <td id="price<?php ob_start();
+echo $_smarty_tpl->tpl_vars['value']->value['id'];
 $_prefixVariable8 = ob_get_clean();
-ob_start();
-echo $_prefixVariable8;
+echo $_prefixVariable8;?>
+"><?php ob_start();
+echo $_smarty_tpl->tpl_vars['value']->value['price'];
 $_prefixVariable9 = ob_get_clean();
-ob_start();
-if ($_prefixVariable9) {
+echo $_prefixVariable9;?>
+</td>
+                        <td id="qty<?php ob_start();
+echo $_smarty_tpl->tpl_vars['value']->value['id'];
 $_prefixVariable10 = ob_get_clean();
 echo $_prefixVariable10;?>
+"><?php ob_start();
+echo $_smarty_tpl->tpl_vars['value']->value['quantity'];
+$_prefixVariable11 = ob_get_clean();
+echo $_prefixVariable11;?>
+</td>
+                        <?php ob_start();
+echo $_smarty_tpl->tpl_vars['value']->value['status'] === "1";
+$_prefixVariable12 = ob_get_clean();
+ob_start();
+echo $_prefixVariable12;
+$_prefixVariable13 = ob_get_clean();
+ob_start();
+if ($_prefixVariable13) {
+$_prefixVariable14 = ob_get_clean();
+echo $_prefixVariable14;?>
 
                         <td>
                             <div class="switch">
                                 <input id="cmn-toggle-4 good<?php ob_start();
 echo $_smarty_tpl->tpl_vars['value']->value['id'];
-$_prefixVariable11 = ob_get_clean();
-echo $_prefixVariable11;?>
+$_prefixVariable15 = ob_get_clean();
+echo $_prefixVariable15;?>
 "
                                     class="cmn-toggle cmn-toggle-round-flat good<?php ob_start();
 echo $_smarty_tpl->tpl_vars['value']->value['id'];
-$_prefixVariable12 = ob_get_clean();
-echo $_prefixVariable12;?>
+$_prefixVariable16 = ob_get_clean();
+echo $_prefixVariable16;?>
 " type="checkbox"
                                     onclick="status(`<?php ob_start();
 echo $_smarty_tpl->tpl_vars['value']->value['status'];
-$_prefixVariable13 = ob_get_clean();
-echo $_prefixVariable13;?>
+$_prefixVariable17 = ob_get_clean();
+echo $_prefixVariable17;?>
 `, `<?php ob_start();
 echo $_smarty_tpl->tpl_vars['value']->value['id'];
-$_prefixVariable14 = ob_get_clean();
-echo $_prefixVariable14;?>
+$_prefixVariable18 = ob_get_clean();
+echo $_prefixVariable18;?>
 `)" checked>
                                 <label for="cmn-toggle-4 good<?php ob_start();
 echo $_smarty_tpl->tpl_vars['value']->value['id'];
-$_prefixVariable15 = ob_get_clean();
-echo $_prefixVariable15;?>
+$_prefixVariable19 = ob_get_clean();
+echo $_prefixVariable19;?>
 "></label>
                             </div>
                         </td>
                         <?php ob_start();
 } else {
-$_prefixVariable16 = ob_get_clean();
-echo $_prefixVariable16;?>
+$_prefixVariable20 = ob_get_clean();
+echo $_prefixVariable20;?>
 
                         <td>
                             <div class="switch">
                                 <input id="cmn-toggle-4 good<?php ob_start();
 echo $_smarty_tpl->tpl_vars['value']->value['id'];
-$_prefixVariable17 = ob_get_clean();
-echo $_prefixVariable17;?>
+$_prefixVariable21 = ob_get_clean();
+echo $_prefixVariable21;?>
 "
                                     class="cmn-toggle cmn-toggle-round-flat good<?php ob_start();
 echo $_smarty_tpl->tpl_vars['value']->value['id'];
-$_prefixVariable18 = ob_get_clean();
-echo $_prefixVariable18;?>
+$_prefixVariable22 = ob_get_clean();
+echo $_prefixVariable22;?>
 " type="checkbox"
                                     onclick="status(`<?php ob_start();
 echo $_smarty_tpl->tpl_vars['value']->value['status'];
-$_prefixVariable19 = ob_get_clean();
-echo $_prefixVariable19;?>
+$_prefixVariable23 = ob_get_clean();
+echo $_prefixVariable23;?>
 `, `<?php ob_start();
 echo $_smarty_tpl->tpl_vars['value']->value['id'];
-$_prefixVariable20 = ob_get_clean();
-echo $_prefixVariable20;?>
+$_prefixVariable24 = ob_get_clean();
+echo $_prefixVariable24;?>
 `)">
                                 <label for="cmn-toggle-4 good<?php ob_start();
 echo $_smarty_tpl->tpl_vars['value']->value['id'];
-$_prefixVariable21 = ob_get_clean();
-echo $_prefixVariable21;?>
+$_prefixVariable25 = ob_get_clean();
+echo $_prefixVariable25;?>
 "></label>
                             </div>
                         </td>
                         <?php ob_start();
 }
-$_prefixVariable22 = ob_get_clean();
-echo $_prefixVariable22;?>
+$_prefixVariable26 = ob_get_clean();
+echo $_prefixVariable26;?>
 
+                        <td><button type="button" class="btn btn-info" data-toggle="modal"
+                                data-target="#myModal<?php ob_start();
+echo $_smarty_tpl->tpl_vars['value']->value['id'];
+$_prefixVariable27 = ob_get_clean();
+echo $_prefixVariable27;?>
+">修改</button>
+                            <!-- Modal -->
+                            <div class="modal fade in" id="myModal<?php ob_start();
+echo $_smarty_tpl->tpl_vars['value']->value['id'];
+$_prefixVariable28 = ob_get_clean();
+echo $_prefixVariable28;?>
+" role="dialog">
+                                <div class="modal-dialog">
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">商品修改</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form>
+                                                <div class="form-group">
+                                                    <label>遊戲片名</label>
+                                                    <input type="text" class="form-control gameName<?php ob_start();
+echo $_smarty_tpl->tpl_vars['value']->value['id'];
+$_prefixVariable29 = ob_get_clean();
+echo $_prefixVariable29;?>
+" value="<?php ob_start();
+echo $_smarty_tpl->tpl_vars['value']->value['name'];
+$_prefixVariable30 = ob_get_clean();
+echo $_prefixVariable30;?>
+"
+                                                        id="modifyGameName">
+                                                    <span class="modifyErrorName"></span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>遊戲片描述</label>
+                                                    <pre><textarea class="form-control des<?php ob_start();
+echo $_smarty_tpl->tpl_vars['value']->value['id'];
+$_prefixVariable31 = ob_get_clean();
+echo $_prefixVariable31;?>
+" id="modifyDescript"
+                                                        rows="3"><?php ob_start();
+echo $_smarty_tpl->tpl_vars['value']->value['descript'];
+$_prefixVariable32 = ob_get_clean();
+echo $_prefixVariable32;?>
+</textarea></pre>
+                                                    <span class="modifyErrorDes"></span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>價格</label>
+                                                    <input class="form-control price<?php ob_start();
+echo $_smarty_tpl->tpl_vars['value']->value['id'];
+$_prefixVariable33 = ob_get_clean();
+echo $_prefixVariable33;?>
+" type="number" min="0" step="1"
+                                                        id="modifyPrice" value="<?php ob_start();
+echo $_smarty_tpl->tpl_vars['value']->value['price'];
+$_prefixVariable34 = ob_get_clean();
+echo $_prefixVariable34;?>
+">
+                                                    <span class="modifyErrorPrice"></span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>庫存</label>
+                                                    <input class="form-control qty<?php ob_start();
+echo $_smarty_tpl->tpl_vars['value']->value['id'];
+$_prefixVariable35 = ob_get_clean();
+echo $_prefixVariable35;?>
+" type="number" min="0" step="1" id="modifyQty"
+                                                        value="<?php ob_start();
+echo $_smarty_tpl->tpl_vars['value']->value['quantity'];
+$_prefixVariable36 = ob_get_clean();
+echo $_prefixVariable36;?>
+">
+                                                    <span class="modifyErrorQty"></span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>圖檔</label>
+                                                    <input class="form-control" type="file" id="imgInp" required
+                                                        accept="image/gif, image/jpeg, image/png" />
+                                                    <img id="previewImg" class="img img<?php ob_start();
+echo $_smarty_tpl->tpl_vars['value']->value['id'];
+$_prefixVariable37 = ob_get_clean();
+echo $_prefixVariable37;?>
+" src=<?php ob_start();
+echo $_smarty_tpl->tpl_vars['value']->value['img'];
+$_prefixVariable38 = ob_get_clean();
+echo $_prefixVariable38;?>
+ />
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-success update" id="<?php ob_start();
+echo $_smarty_tpl->tpl_vars['value']->value['id'];
+$_prefixVariable39 = ob_get_clean();
+echo $_prefixVariable39;?>
+"
+                                                data-dismiss="modal">確認</button>
+                                            <button type="button" class="btn btn-default"
+                                                data-dismiss="modal">取消</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
                     </tr>
                     <?php ob_start();
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
-$_prefixVariable23 = ob_get_clean();
-echo $_prefixVariable23;?>
+$_prefixVariable40 = ob_get_clean();
+echo $_prefixVariable40;?>
 
                 </tbody>
             </table>
@@ -219,24 +345,24 @@ $_smarty_tpl->tpl_vars['num']->first = $_smarty_tpl->tpl_vars['num']->iteration 
                     <li class="page-item"><a class="page-link btn btn-outline-light disabled"
                             href="?product=<?php ob_start();
 echo $_smarty_tpl->tpl_vars['num']->value;
-$_prefixVariable24 = ob_get_clean();
-echo $_prefixVariable24;?>
+$_prefixVariable41 = ob_get_clean();
+echo $_prefixVariable41;?>
 "><?php ob_start();
 echo $_smarty_tpl->tpl_vars['num']->value;
-$_prefixVariable25 = ob_get_clean();
-echo $_prefixVariable25;?>
+$_prefixVariable42 = ob_get_clean();
+echo $_prefixVariable42;?>
 </a>
                     </li>
                     <?php } else { ?>
                     <li class="page-item"><a class="page-link btn btn-outline-light active"
                             href="?product=<?php ob_start();
 echo $_smarty_tpl->tpl_vars['num']->value;
-$_prefixVariable26 = ob_get_clean();
-echo $_prefixVariable26;?>
+$_prefixVariable43 = ob_get_clean();
+echo $_prefixVariable43;?>
 "><?php ob_start();
 echo $_smarty_tpl->tpl_vars['num']->value;
-$_prefixVariable27 = ob_get_clean();
-echo $_prefixVariable27;?>
+$_prefixVariable44 = ob_get_clean();
+echo $_prefixVariable44;?>
 </a>
                     </li>
                     <?php }?>
@@ -263,98 +389,98 @@ echo $_prefixVariable27;?>
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['userList']->value, 'list');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['list']->value) {
-$_prefixVariable28 = ob_get_clean();
-echo $_prefixVariable28;?>
+$_prefixVariable45 = ob_get_clean();
+echo $_prefixVariable45;?>
 
                 <tr>
                     <th scope="row"><?php ob_start();
 echo $_smarty_tpl->tpl_vars['list']->value['id'];
-$_prefixVariable29 = ob_get_clean();
-echo $_prefixVariable29;?>
+$_prefixVariable46 = ob_get_clean();
+echo $_prefixVariable46;?>
 </th>
                     <td><?php ob_start();
 echo $_smarty_tpl->tpl_vars['list']->value['nickName'];
-$_prefixVariable30 = ob_get_clean();
-echo $_prefixVariable30;?>
+$_prefixVariable47 = ob_get_clean();
+echo $_prefixVariable47;?>
 </td>
                     <td><?php ob_start();
 echo $_smarty_tpl->tpl_vars['list']->value['account'];
-$_prefixVariable31 = ob_get_clean();
-echo $_prefixVariable31;?>
+$_prefixVariable48 = ob_get_clean();
+echo $_prefixVariable48;?>
 </td>
                     <td>
                         <?php ob_start();
 echo $_smarty_tpl->tpl_vars['list']->value['permission'];
-$_prefixVariable32 = ob_get_clean();
+$_prefixVariable49 = ob_get_clean();
 ob_start();
-echo $_prefixVariable32;
-$_prefixVariable33 = ob_get_clean();
+echo $_prefixVariable49;
+$_prefixVariable50 = ob_get_clean();
 ob_start();
-if ($_prefixVariable33 === "1") {
-$_prefixVariable34 = ob_get_clean();
-echo $_prefixVariable34;?>
+if ($_prefixVariable50 === "1") {
+$_prefixVariable51 = ob_get_clean();
+echo $_prefixVariable51;?>
 
                         <div class="switch">
                             <input id="cmn-toggle-4 user<?php ob_start();
 echo $_smarty_tpl->tpl_vars['list']->value['id'];
-$_prefixVariable35 = ob_get_clean();
-echo $_prefixVariable35;?>
+$_prefixVariable52 = ob_get_clean();
+echo $_prefixVariable52;?>
 "
                                 class="cmn-toggle cmn-toggle-round-flat user<?php ob_start();
 echo $_smarty_tpl->tpl_vars['list']->value['id'];
-$_prefixVariable36 = ob_get_clean();
-echo $_prefixVariable36;?>
+$_prefixVariable53 = ob_get_clean();
+echo $_prefixVariable53;?>
 " type="checkbox" checked
                                 onclick="Suspension(`<?php ob_start();
 echo $_smarty_tpl->tpl_vars['list']->value['permission'];
-$_prefixVariable37 = ob_get_clean();
-echo $_prefixVariable37;?>
+$_prefixVariable54 = ob_get_clean();
+echo $_prefixVariable54;?>
 `, `<?php ob_start();
 echo $_smarty_tpl->tpl_vars['list']->value['id'];
-$_prefixVariable38 = ob_get_clean();
-echo $_prefixVariable38;?>
+$_prefixVariable55 = ob_get_clean();
+echo $_prefixVariable55;?>
 `)">
                             <label for="cmn-toggle-4 user<?php ob_start();
 echo $_smarty_tpl->tpl_vars['list']->value['id'];
-$_prefixVariable39 = ob_get_clean();
-echo $_prefixVariable39;?>
+$_prefixVariable56 = ob_get_clean();
+echo $_prefixVariable56;?>
 "></label>
                         </div>
                         <?php ob_start();
 } else {
-$_prefixVariable40 = ob_get_clean();
-echo $_prefixVariable40;?>
+$_prefixVariable57 = ob_get_clean();
+echo $_prefixVariable57;?>
 
                         <div class="switch">
                             <input id="cmn-toggle-4 user<?php ob_start();
 echo $_smarty_tpl->tpl_vars['list']->value['id'];
-$_prefixVariable41 = ob_get_clean();
-echo $_prefixVariable41;?>
+$_prefixVariable58 = ob_get_clean();
+echo $_prefixVariable58;?>
 "
                                 class="cmn-toggle cmn-toggle-round-flat user<?php ob_start();
 echo $_smarty_tpl->tpl_vars['list']->value['id'];
-$_prefixVariable42 = ob_get_clean();
-echo $_prefixVariable42;?>
+$_prefixVariable59 = ob_get_clean();
+echo $_prefixVariable59;?>
 " type="checkbox"
                                 onclick="Suspension(`<?php ob_start();
 echo $_smarty_tpl->tpl_vars['list']->value['permission'];
-$_prefixVariable43 = ob_get_clean();
-echo $_prefixVariable43;?>
+$_prefixVariable60 = ob_get_clean();
+echo $_prefixVariable60;?>
 `,`<?php ob_start();
 echo $_smarty_tpl->tpl_vars['list']->value['id'];
-$_prefixVariable44 = ob_get_clean();
-echo $_prefixVariable44;?>
+$_prefixVariable61 = ob_get_clean();
+echo $_prefixVariable61;?>
 `)">
                             <label for="cmn-toggle-4 user<?php ob_start();
 echo $_smarty_tpl->tpl_vars['list']->value['id'];
-$_prefixVariable45 = ob_get_clean();
-echo $_prefixVariable45;?>
+$_prefixVariable62 = ob_get_clean();
+echo $_prefixVariable62;?>
 "></label>
                         </div>
                         <?php ob_start();
 }
-$_prefixVariable46 = ob_get_clean();
-echo $_prefixVariable46;?>
+$_prefixVariable63 = ob_get_clean();
+echo $_prefixVariable63;?>
 
                     </td>
                 </tr>
@@ -362,8 +488,8 @@ echo $_prefixVariable46;?>
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
-$_prefixVariable47 = ob_get_clean();
-echo $_prefixVariable47;?>
+$_prefixVariable64 = ob_get_clean();
+echo $_prefixVariable64;?>
 
             </tbody>
         </table>
@@ -378,24 +504,24 @@ $_smarty_tpl->tpl_vars['num']->first = $_smarty_tpl->tpl_vars['num']->iteration 
                 <li class="page-item"><a class="page-link btn btn-outline-light disabled"
                         href="?user=<?php ob_start();
 echo $_smarty_tpl->tpl_vars['num']->value;
-$_prefixVariable48 = ob_get_clean();
-echo $_prefixVariable48;?>
+$_prefixVariable65 = ob_get_clean();
+echo $_prefixVariable65;?>
 "><?php ob_start();
 echo $_smarty_tpl->tpl_vars['num']->value;
-$_prefixVariable49 = ob_get_clean();
-echo $_prefixVariable49;?>
+$_prefixVariable66 = ob_get_clean();
+echo $_prefixVariable66;?>
 </a>
                 </li>
                 <?php } else { ?>
                 <li class="page-item"><a class="page-link btn btn-outline-light active"
                         href="?user=<?php ob_start();
 echo $_smarty_tpl->tpl_vars['num']->value;
-$_prefixVariable50 = ob_get_clean();
-echo $_prefixVariable50;?>
+$_prefixVariable67 = ob_get_clean();
+echo $_prefixVariable67;?>
 "><?php ob_start();
 echo $_smarty_tpl->tpl_vars['num']->value;
-$_prefixVariable51 = ob_get_clean();
-echo $_prefixVariable51;?>
+$_prefixVariable68 = ob_get_clean();
+echo $_prefixVariable68;?>
 </a>
                 </li>
                 <?php }?>
@@ -410,7 +536,7 @@ echo $_prefixVariable51;?>
         <form>
             <div class="form-group">
                 <label>遊戲片名</label>
-                <input type="text" class="form-control" id="gameName" placeholder="遊戲片名" required>
+                <input type="text" class="form-control" id="gameName" placeholder="遊戲片名" autofocus required>
                 <span class="errorName"></span>
             </div>
             <div class="form-group">
@@ -420,9 +546,13 @@ echo $_prefixVariable51;?>
             </div>
             <div class="form-group">
                 <label>價格</label>
-                <input class="form-control" type="number" min="0" value="9487" step="1" id="price" placeholder="價格"
-                    required>
+                <input class="form-control" type="number" min="0" step="1" id="price" placeholder="價格" required>
                 <span class="errorPrice"></span>
+            </div>
+            <div class="form-group">
+                <label>庫存</label>
+                <input class="form-control" type="number" min="0" step="1" id="qty" placeholder="庫存" required>
+                <span class="errorQty"></span>
             </div>
             <div class="form-group">
                 <label>圖檔</label>

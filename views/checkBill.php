@@ -23,7 +23,7 @@ if (isset($showCart["result"])) {
     header("location:index.php");
 } else {
     for ($i = 0; $i < count($showCart); $i++) {
-        $total = $total + $showCart[$i]['price'];
+        $total = $total + $showCart[$i]['subtotal'];
     }
 
 }

@@ -38,6 +38,10 @@ textarea{
   height: 300px;
 }
 
+.badge{
+  background-color: red;
+  font-size: 20px;
+}
 
 
 

@@ -25,6 +25,17 @@ function product(e, permission) {
           }).then(function() {
             window.location.href = "index.php";
           });
+        } else if(res["result"] === "exist"){
+          // alert("123")
+          Swal.fire({
+            type: "error",
+            title: "商品已在購物車",
+            // timer: 1000,
+            allowOutsideClick: false
+          })
+          .then(function() {
+            window.location.href = "cart.php";
+          });
         } else {
           Swal.fire({
             type: "error",

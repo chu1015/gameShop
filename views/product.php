@@ -16,6 +16,9 @@ $user = $user->ckCookie();
 require_once("../controllers/productController.php");
 $list = new Product($mysqli);
 $product = $list->getProduct($_GET["product"]);
+if($product["status"]!==1){
+    header("Location:index.php");
+}
 $count = $list->countCart($user["id"]);
 
 

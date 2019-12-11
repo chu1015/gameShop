@@ -42,15 +42,18 @@
                         <th scope="col">#</th>
                         <th scope="col">品名</th>
                         <th scope="col">價格</th>
+                        <th scope="col">庫存</th>
                         <th scope="col">上下架</th>
+                        <th scope="col">商品修改</th>
                     </tr>
                 </thead>
                 <tbody>
                     {{foreach $all as $value}}
                     <tr>
                         <th scope="row">{{$value.id}}</th>
-                        <td>{{$value.name}}</td>
-                        <td>{{$value.price}}</td>
+                        <td id="gameName{{$value.id}}">{{$value.name}}</td>
+                        <td id="price{{$value.id}}">{{$value.price}}</td>
+                        <td id="qty{{$value.id}}">{{$value.quantity}}</td>
                         {{if {{$value.status === "1"}}}}
                         <td>
                             <div class="switch">
@@ -70,6 +73,61 @@
                             </div>
                         </td>
                         {{/if }}
+                        <td><button type="button" class="btn btn-info" data-toggle="modal"
+                                data-target="#myModal{{$value.id}}">修改</button>
+                            <!-- Modal -->
+                            <div class="modal fade in" id="myModal{{$value.id}}" role="dialog">
+                                <div class="modal-dialog">
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">商品修改</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form>
+                                                <div class="form-group">
+                                                    <label>遊戲片名</label>
+                                                    <input type="text" class="form-control gameName{{$value.id}}" value="{{$value.name}}"
+                                                        id="modifyGameName">
+                                                    <span class="modifyErrorName"></span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>遊戲片描述</label>
+                                                    <pre><textarea class="form-control des{{$value.id}}" id="modifyDescript"
+                                                        rows="3">{{$value.descript}}</textarea></pre>
+                                                    <span class="modifyErrorDes"></span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>價格</label>
+                                                    <input class="form-control price{{$value.id}}" type="number" min="0" step="1"
+                                                        id="modifyPrice" value="{{$value.price}}">
+                                                    <span class="modifyErrorPrice"></span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>庫存</label>
+                                                    <input class="form-control qty{{$value.id}}" type="number" min="0" step="1" id="modifyQty"
+                                                        value="{{$value.quantity}}">
+                                                    <span class="modifyErrorQty"></span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>圖檔</label>
+                                                    <input class="form-control" type="file" id="imgInp" required
+                                                        accept="image/gif, image/jpeg, image/png" />
+                                                    <img id="previewImg" class="img img{{$value.id}}" src={{$value.img}} />
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-success update" id="{{$value.id}}"
+                                                data-dismiss="modal">確認</button>
+                                            <button type="button" class="btn btn-default"
+                                                data-dismiss="modal">取消</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
                     </tr>
                     {{/foreach}}
                 </tbody>
@@ -150,7 +208,7 @@
         <form>
             <div class="form-group">
                 <label>遊戲片名</label>
-                <input type="text" class="form-control" id="gameName" placeholder="遊戲片名" required>
+                <input type="text" class="form-control" id="gameName" placeholder="遊戲片名" autofocus required>
                 <span class="errorName"></span>
             </div>
             <div class="form-group">
@@ -160,9 +218,13 @@
             </div>
             <div class="form-group">
                 <label>價格</label>
-                <input class="form-control" type="number" min="0" value="9487" step="1" id="price" placeholder="價格"
-                    required>
+                <input class="form-control" type="number" min="0" step="1" id="price" placeholder="價格" required>
                 <span class="errorPrice"></span>
+            </div>
+            <div class="form-group">
+                <label>庫存</label>
+                <input class="form-control" type="number" min="0" step="1" id="qty" placeholder="庫存" required>
+                <span class="errorQty"></span>
             </div>
             <div class="form-group">
                 <label>圖檔</label>

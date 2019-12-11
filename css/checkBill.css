@@ -54,12 +54,19 @@ h3{
 
 body {
   height: 900px;
+  background-color: #31353d;
+}
+
+.badge{
+  background-color: red;
+  font-size: 20px;
 }
 
 
 /*********************************/
 html {
-    background: #bbc3c6;
+    /* background: #bbc3c6; */
+    background-color: #31353d;
     font: 62.5%/1.5em "Trebuchet Ms", helvetica;
   }
   

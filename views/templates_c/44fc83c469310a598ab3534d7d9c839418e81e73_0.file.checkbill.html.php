@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-12-03 04:15:17
+/* Smarty version 3.1.33, created on 2019-12-10 03:57:55
   from 'C:\xampp\htdocs\chu\gameShop\templates\checkbill.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5de5d345d08424_59194565',
+  'unifunc' => 'content_5def09b39e1245_90236053',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '44fc83c469310a598ab3534d7d9c839418e81e73' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chu\\gameShop\\templates\\checkbill.html',
-      1 => 1575342917,
+      1 => 1575946673,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../templates/navbar.html' => 1,
   ),
 ),false)) {
-function content_5de5d345d08424_59194565 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5def09b39e1245_90236053 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -120,13 +120,17 @@ echo $_prefixVariable7;?>
                 </div>
 
                 <div class="col col-qty layout-inline">
-                    <p>1</p>
+                    <p><?php ob_start();
+echo $_smarty_tpl->tpl_vars['value']->value['amount'];
+$_prefixVariable8 = ob_get_clean();
+echo $_prefixVariable8;?>
+</p>
                 </div>
                 <div class="col col-total col-numeric">
                     <p class="price align-center">$<?php ob_start();
-echo $_smarty_tpl->tpl_vars['value']->value['price'];
-$_prefixVariable8 = ob_get_clean();
-echo $_prefixVariable8;?>
+echo $_smarty_tpl->tpl_vars['value']->value['subtotal'];
+$_prefixVariable9 = ob_get_clean();
+echo $_prefixVariable9;?>
 </p>
                 </div>
             </div>
@@ -134,8 +138,8 @@ echo $_prefixVariable8;?>
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
-$_prefixVariable9 = ob_get_clean();
-echo $_prefixVariable9;?>
+$_prefixVariable10 = ob_get_clean();
+echo $_prefixVariable10;?>
 
             <div class="tf">
                 <div class="row layout-inline">
@@ -145,8 +149,8 @@ echo $_prefixVariable9;?>
                     <div class="col align-center">
                         <p class="total">$<?php ob_start();
 echo $_smarty_tpl->tpl_vars['total']->value;
-$_prefixVariable10 = ob_get_clean();
-echo $_prefixVariable10;?>
+$_prefixVariable11 = ob_get_clean();
+echo $_prefixVariable11;?>
 </p>
                     </div>
                 </div>
@@ -183,14 +187,14 @@ echo $_prefixVariable10;?>
                                 </div>
                                 <h1>總計(NT):<h1 id="total"><?php ob_start();
 echo $_smarty_tpl->tpl_vars['total']->value;
-$_prefixVariable11 = ob_get_clean();
-echo $_prefixVariable11;?>
+$_prefixVariable12 = ob_get_clean();
+echo $_prefixVariable12;?>
 </h1></h1>
 
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                                <button type="button" onclick="bill()" class="btn btn-success"
+                                <button type="button" class="btn btn-success checkout"
                                     data-dismiss="modal">確認購買</button>
                             </div>
                         </div>
