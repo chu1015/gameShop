@@ -2,11 +2,17 @@
 class Token
 {
     public $mysqli, $user;
+    /**
+     * 建立資料庫連線
+     */
     public function __construct($mysqli)
     {
         $this->mysqli = $mysqli;
     }
-
+    
+    /**
+     * 確認登入者cookie裡的token
+     */
     public function ckCookie()
     {
         if(isset($_COOKIE["token"])){

@@ -18,6 +18,15 @@ $(document).ready(function() {
     readURL(this);
   });
 
+  $(".updateImgInp").change(function() {
+    id = $(this).parent().parent().parent().parent().find(".update").attr("id");
+    // id = $(".update").attr(id);
+    console.log(id);
+    //當檔案改變後，做一些事
+    // this代表<input id="imgInp">
+    updateReadURL(this, id);
+  });
+
   let nameFlag, desFlag, priceFlag, qtyFlag;
   let modifyNameFlag = true, modifyDesFlag = true, modifyPriceFlag = true, modifyQtyFlag = true;
   let rule1 = /^[\s\S]*.*[^\s][\s\S]*$/;
@@ -115,6 +124,7 @@ $(document).ready(function() {
             name: $("#gameName").val(),
             des: $("#descript").val(),
             price: $("#price").val(),
+            quantity:$("#qty").val(),
             img: $("#previewImg").attr("src")
           },
           success: function(res) {
@@ -304,6 +314,19 @@ function readURL(input) {
     var reader = new FileReader();
     reader.onload = function(e) {
       $("#previewImg").attr("src", e.target.result);
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+/**
+ * 商品修改預覽圖片
+ */
+function updateReadURL(input, id) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      $("#updatePreviewImg" + id).attr("src", e.target.result);
     };
     reader.readAsDataURL(input.files[0]);
   }

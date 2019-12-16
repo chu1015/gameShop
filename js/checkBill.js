@@ -11,8 +11,7 @@ $(document).ready(function() {
       success: function(res) {
         res = JSON.parse(res);
         if (res["result"] === true) {
-          swal
-            .fire({
+          swal.fire({
               type: "success",
               title: "結帳成功",
               timer: 1000,
@@ -21,7 +20,7 @@ $(document).ready(function() {
             .then(function() {
               window.location.href = "index.php";
             });
-        } else if (res["result"] === "permissionError") {
+        } else if (res["erroMsg"] === "permissionError") {
           Swal.fire({
             type: "error",
             title: "您已被停權",
@@ -30,7 +29,7 @@ $(document).ready(function() {
           }).then(function() {
             window.location.href = "index.php";
           });
-        } else if (res["result"] === "productError") {
+        } else if (res["erroMsg"] === "productError") {
           Swal.fire({
             type: "error",
             title: "有商品已下架請先移除該商品",
@@ -39,7 +38,7 @@ $(document).ready(function() {
           }).then(function() {
             window.location.href = "cart.php";
           });
-        } else if (res["result"] === "qtyError") {
+        } else if (res["erroMsg"] === "qtyError") {
           Swal.fire({
             type: "error",
             title: "商品庫存不足重新輸入",
@@ -48,7 +47,7 @@ $(document).ready(function() {
           }).then(function() {
             window.location.href = "cart.php";
           });
-        } else if (res["result"] === "cartError") {
+        } else if (res["erroMsg"] === "cartError") {
           Swal.fire({
             type: "error",
             title: "購物車無內容",

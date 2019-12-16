@@ -2,13 +2,13 @@
 require_once "token.php";
 class Product extends Token
 {
-    ##首頁單頁顯示數量
+    ## 首頁單頁顯示數量
     public $list = 12;
 
-    ##管理頁單頁顯示數量
+    ## 管理頁單頁顯示數量
     public $managerList = 10;
 
-    ##購買紀錄單頁顯示數量
+    ## 購買紀錄單頁顯示數量
     public $shoppingLog = 10;
 
     /**
@@ -36,7 +36,6 @@ class Product extends Token
             $all[] = $row;
         }
         return $all;
-
     }
 
     /**
@@ -86,7 +85,6 @@ class Product extends Token
             $all[] = $row;
         }
         return $all;
-
     }
 
     /**
@@ -147,7 +145,6 @@ class Product extends Token
      */
     public function showCart($id)
     {
-        // $sql = "SELECT * FROM `cart` WHERE userId = ?";
         $sql = "SELECT `list`.`id`, `gameName`, `list`.`price`, `quantity`, `amount`, `cart`.`subtotal`,`list`.`status` FROM `list`, `cart`
                      WHERE `list`.`id` = `cart`.`gameId` AND `cart`.`userId`= ?";
         $stmt = $this->mysqli->prepare($sql);
@@ -272,23 +269,31 @@ class Product extends Token
             $res["result"] = false;
             return $res;
         }
-
     }
 
     /**
      * 結帳
+     * 
+     * @param array $data 結帳資料
+     *
+     *  return array 
+     * 
      */
     public function Checkout($data)
     {
+        $res = [
+            'result' => false
+        ];
+
         try
         {
+            ## turn on transactions
+            $this->mysqli->autocommit(false);
 
             ## 確認是否被停權
             $user = $this->ckCookie();
             if ($user["permission"] !== 1) {
                 throw new Exception("permissionError");
-                // $res["result"] = "permissionError";
-                // return $res;
             }
 
             ## 確認商品是否下架
@@ -299,8 +304,9 @@ class Product extends Token
 
             $couuntCart = $this->countCart($user["id"]);
             $compare = $this->ckquantity($user["id"]);
+
             ## 確認購物車內有無商品
-            if ($couuntCart == 0 && $compare == 0) {
+            if ($couuntCart === 0 && $compare === 0) {
                 throw new Exception("cartError");
             }
 
@@ -308,10 +314,11 @@ class Product extends Token
             if ($couuntCart !== $compare) {
                 throw new Exception("qtyError");
             }
+
             ## 購買扣庫存
             $Subtract = $this->Subtract($user["id"]);
             if ($Subtract === false) {
-                throw new Exception(false);
+                throw new Exception("subtractError");
             }
 
             ## 將購物車內容輸入到購買紀錄
@@ -328,18 +335,22 @@ class Product extends Token
             $stmt = $this->mysqli->prepare($sql2);
             $stmt->bind_param("i", $user["id"]);
             $msg2 = $stmt->execute();
-            if ($msg && $msg2) {
-                $res["result"] = true;
-                return $res;
-            } else {
-                $res["result"] = false;
-                return $res;
+
+            if ($msg !== true || $msg2 !== true) {
+                throw new Exception("shopLogError");
             }
+
+            ## turn off transactions + commit queued queries
+            $this->mysqli->autocommit(true);
+            $res["result"] = true;
         } catch (Exception $e) {
-            $res["result"] = $e->getMessage();
-            return $res;
+            ## remove all queries from queue if error (undo)
+            $this->mysqli->rollback();
+            $res["erroMsg"] = $e->getMessage();
         }
+        return $res;
     }
+
     // /**
     //  * 結帳
     //  */
@@ -433,7 +444,6 @@ class Product extends Token
         $res = $result->fetch_assoc();
         $res = ceil($res['total'] / $this->shoppingLog);
         return $res;
-
     }
 
     /**
@@ -501,9 +511,9 @@ class Product extends Token
     {
         $user = $this->ckCookie();
         if ($user["level"] === 1) {
-            $sql = "INSERT INTO list(`name`, `descript`, `price`, `img`)" . "VALUES (?, ?, ?, ?)";
+            $sql = "INSERT INTO list(`name`, `descript`, `price`, `quantity`, `img`)" . "VALUES (?, ?, ?, ?, ?)";
             $stmt = $this->mysqli->prepare($sql);
-            $stmt->bind_param("ssis", $data["name"], $data["des"], $data["price"], $data["img"]);
+            $stmt->bind_param("ssiis", $data["name"], $data["des"], $data["price"], $data["quantity"], $data["img"]);
             $msg = $stmt->execute();
             if ($msg) {
                 $res["result"] = true;

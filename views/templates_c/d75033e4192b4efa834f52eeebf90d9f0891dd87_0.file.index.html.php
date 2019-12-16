@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-12-05 04:24:05
+/* Smarty version 3.1.33, created on 2019-12-12 03:07:16
   from 'C:\xampp\htdocs\chu\gameShop\templates\index.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5de87855a68587_66917750',
+  'unifunc' => 'content_5df1a0d417d7f2_22286056',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd75033e4192b4efa834f52eeebf90d9f0891dd87' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chu\\gameShop\\templates\\index.html',
-      1 => 1575516244,
+      1 => 1576116432,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../templates/navbar.html' => 1,
   ),
 ),false)) {
-function content_5de87855a68587_66917750 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5df1a0d417d7f2_22286056 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <html lang="zh" class="no-js">
 
@@ -49,9 +49,9 @@ function content_5de87855a68587_66917750 (Smarty_Internal_Template $_smarty_tpl)
 	<?php echo '<script'; ?>
  src="../js/main.js"><?php echo '</script'; ?>
 > <!-- Gem jQuery -->
-	<?php echo '<script'; ?>
+	<!-- <?php echo '<script'; ?>
  src="../js/index.js"><?php echo '</script'; ?>
->
+> -->
 	<?php echo '<script'; ?>
  src="../js/navbar.js"><?php echo '</script'; ?>
 >

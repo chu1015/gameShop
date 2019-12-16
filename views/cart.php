@@ -1,18 +1,17 @@
 <?php
-##引用Smarty
-require_once '../libs/Smarty.class.php';
+## 引用Smarty
+require_once('../libs/Smarty.class.php');
 $smarty = new Smarty;
 $smarty->debugging = true;
-##引用資料庫連線sql語句
-require_once '../routes/sql.php';
-##引用user相關類別
-require_once "../controllers/userController.php";
+## 引用資料庫連線sql語句
+require_once('../routes/sql.php');
+## 引用user相關類別
+require_once("../controllers/userController.php");
 $user = new User($mysqli);
 $user = $user->ckCookie();
-##引用Product相關類別
-require_once "../controllers/productController.php";
+## 引用Product相關類別
+require_once("../controllers/productController.php");
 if (isset($user["permission"])) {
-
     $product = new Product($mysqli);
     // $product = $list->getProduct($_GET["product"]);
     $showCart = $product->showCart($user["id"]);

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-12-10 10:25:16
+/* Smarty version 3.1.33, created on 2019-12-12 03:18:02
   from 'C:\xampp\htdocs\chu\gameShop\templates\manager.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5def647ca913d6_77672167',
+  'unifunc' => 'content_5df1a35a6792c4_69753266',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '141edbcbcf2e0631de6c3f546ba73acc0ef57c61' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chu\\gameShop\\templates\\manager.html',
-      1 => 1575969913,
+      1 => 1576116290,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../templates/navbar.html' => 1,
   ),
 ),false)) {
-function content_5def647ca913d6_77672167 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5df1a35a6792c4_69753266 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <html lang="zh" class="no-js">
 
@@ -296,16 +296,20 @@ echo $_prefixVariable36;?>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>圖檔</label>
-                                                    <input class="form-control" type="file" id="imgInp" required
+                                                    <input class="form-control updateImgInp" type="file" id="updateImgInp" required
                                                         accept="image/gif, image/jpeg, image/png" />
-                                                    <img id="previewImg" class="img img<?php ob_start();
+                                                    <img id="updatePreviewImg<?php ob_start();
 echo $_smarty_tpl->tpl_vars['value']->value['id'];
 $_prefixVariable37 = ob_get_clean();
 echo $_prefixVariable37;?>
-" src=<?php ob_start();
-echo $_smarty_tpl->tpl_vars['value']->value['img'];
+" class="img img<?php ob_start();
+echo $_smarty_tpl->tpl_vars['value']->value['id'];
 $_prefixVariable38 = ob_get_clean();
 echo $_prefixVariable38;?>
+" src=<?php ob_start();
+echo $_smarty_tpl->tpl_vars['value']->value['img'];
+$_prefixVariable39 = ob_get_clean();
+echo $_prefixVariable39;?>
  />
                                                 </div>
                                             </form>
@@ -313,8 +317,8 @@ echo $_prefixVariable38;?>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-success update" id="<?php ob_start();
 echo $_smarty_tpl->tpl_vars['value']->value['id'];
-$_prefixVariable39 = ob_get_clean();
-echo $_prefixVariable39;?>
+$_prefixVariable40 = ob_get_clean();
+echo $_prefixVariable40;?>
 "
                                                 data-dismiss="modal">確認</button>
                                             <button type="button" class="btn btn-default"
@@ -329,8 +333,8 @@ echo $_prefixVariable39;?>
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
-$_prefixVariable40 = ob_get_clean();
-echo $_prefixVariable40;?>
+$_prefixVariable41 = ob_get_clean();
+echo $_prefixVariable41;?>
 
                 </tbody>
             </table>
@@ -345,24 +349,24 @@ $_smarty_tpl->tpl_vars['num']->first = $_smarty_tpl->tpl_vars['num']->iteration 
                     <li class="page-item"><a class="page-link btn btn-outline-light disabled"
                             href="?product=<?php ob_start();
 echo $_smarty_tpl->tpl_vars['num']->value;
-$_prefixVariable41 = ob_get_clean();
-echo $_prefixVariable41;?>
-"><?php ob_start();
-echo $_smarty_tpl->tpl_vars['num']->value;
 $_prefixVariable42 = ob_get_clean();
 echo $_prefixVariable42;?>
+"><?php ob_start();
+echo $_smarty_tpl->tpl_vars['num']->value;
+$_prefixVariable43 = ob_get_clean();
+echo $_prefixVariable43;?>
 </a>
                     </li>
                     <?php } else { ?>
                     <li class="page-item"><a class="page-link btn btn-outline-light active"
                             href="?product=<?php ob_start();
 echo $_smarty_tpl->tpl_vars['num']->value;
-$_prefixVariable43 = ob_get_clean();
-echo $_prefixVariable43;?>
-"><?php ob_start();
-echo $_smarty_tpl->tpl_vars['num']->value;
 $_prefixVariable44 = ob_get_clean();
 echo $_prefixVariable44;?>
+"><?php ob_start();
+echo $_smarty_tpl->tpl_vars['num']->value;
+$_prefixVariable45 = ob_get_clean();
+echo $_prefixVariable45;?>
 </a>
                     </li>
                     <?php }?>
@@ -389,98 +393,98 @@ echo $_prefixVariable44;?>
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['userList']->value, 'list');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['list']->value) {
-$_prefixVariable45 = ob_get_clean();
-echo $_prefixVariable45;?>
+$_prefixVariable46 = ob_get_clean();
+echo $_prefixVariable46;?>
 
                 <tr>
                     <th scope="row"><?php ob_start();
 echo $_smarty_tpl->tpl_vars['list']->value['id'];
-$_prefixVariable46 = ob_get_clean();
-echo $_prefixVariable46;?>
+$_prefixVariable47 = ob_get_clean();
+echo $_prefixVariable47;?>
 </th>
                     <td><?php ob_start();
 echo $_smarty_tpl->tpl_vars['list']->value['nickName'];
-$_prefixVariable47 = ob_get_clean();
-echo $_prefixVariable47;?>
+$_prefixVariable48 = ob_get_clean();
+echo $_prefixVariable48;?>
 </td>
                     <td><?php ob_start();
 echo $_smarty_tpl->tpl_vars['list']->value['account'];
-$_prefixVariable48 = ob_get_clean();
-echo $_prefixVariable48;?>
+$_prefixVariable49 = ob_get_clean();
+echo $_prefixVariable49;?>
 </td>
                     <td>
                         <?php ob_start();
 echo $_smarty_tpl->tpl_vars['list']->value['permission'];
-$_prefixVariable49 = ob_get_clean();
-ob_start();
-echo $_prefixVariable49;
 $_prefixVariable50 = ob_get_clean();
 ob_start();
-if ($_prefixVariable50 === "1") {
+echo $_prefixVariable50;
 $_prefixVariable51 = ob_get_clean();
-echo $_prefixVariable51;?>
+ob_start();
+if ($_prefixVariable51 === "1") {
+$_prefixVariable52 = ob_get_clean();
+echo $_prefixVariable52;?>
 
                         <div class="switch">
                             <input id="cmn-toggle-4 user<?php ob_start();
 echo $_smarty_tpl->tpl_vars['list']->value['id'];
-$_prefixVariable52 = ob_get_clean();
-echo $_prefixVariable52;?>
+$_prefixVariable53 = ob_get_clean();
+echo $_prefixVariable53;?>
 "
                                 class="cmn-toggle cmn-toggle-round-flat user<?php ob_start();
 echo $_smarty_tpl->tpl_vars['list']->value['id'];
-$_prefixVariable53 = ob_get_clean();
-echo $_prefixVariable53;?>
+$_prefixVariable54 = ob_get_clean();
+echo $_prefixVariable54;?>
 " type="checkbox" checked
                                 onclick="Suspension(`<?php ob_start();
 echo $_smarty_tpl->tpl_vars['list']->value['permission'];
-$_prefixVariable54 = ob_get_clean();
-echo $_prefixVariable54;?>
-`, `<?php ob_start();
-echo $_smarty_tpl->tpl_vars['list']->value['id'];
 $_prefixVariable55 = ob_get_clean();
 echo $_prefixVariable55;?>
-`)">
-                            <label for="cmn-toggle-4 user<?php ob_start();
+`, `<?php ob_start();
 echo $_smarty_tpl->tpl_vars['list']->value['id'];
 $_prefixVariable56 = ob_get_clean();
 echo $_prefixVariable56;?>
+`)">
+                            <label for="cmn-toggle-4 user<?php ob_start();
+echo $_smarty_tpl->tpl_vars['list']->value['id'];
+$_prefixVariable57 = ob_get_clean();
+echo $_prefixVariable57;?>
 "></label>
                         </div>
                         <?php ob_start();
 } else {
-$_prefixVariable57 = ob_get_clean();
-echo $_prefixVariable57;?>
+$_prefixVariable58 = ob_get_clean();
+echo $_prefixVariable58;?>
 
                         <div class="switch">
                             <input id="cmn-toggle-4 user<?php ob_start();
 echo $_smarty_tpl->tpl_vars['list']->value['id'];
-$_prefixVariable58 = ob_get_clean();
-echo $_prefixVariable58;?>
+$_prefixVariable59 = ob_get_clean();
+echo $_prefixVariable59;?>
 "
                                 class="cmn-toggle cmn-toggle-round-flat user<?php ob_start();
 echo $_smarty_tpl->tpl_vars['list']->value['id'];
-$_prefixVariable59 = ob_get_clean();
-echo $_prefixVariable59;?>
+$_prefixVariable60 = ob_get_clean();
+echo $_prefixVariable60;?>
 " type="checkbox"
                                 onclick="Suspension(`<?php ob_start();
 echo $_smarty_tpl->tpl_vars['list']->value['permission'];
-$_prefixVariable60 = ob_get_clean();
-echo $_prefixVariable60;?>
-`,`<?php ob_start();
-echo $_smarty_tpl->tpl_vars['list']->value['id'];
 $_prefixVariable61 = ob_get_clean();
 echo $_prefixVariable61;?>
-`)">
-                            <label for="cmn-toggle-4 user<?php ob_start();
+`,`<?php ob_start();
 echo $_smarty_tpl->tpl_vars['list']->value['id'];
 $_prefixVariable62 = ob_get_clean();
 echo $_prefixVariable62;?>
+`)">
+                            <label for="cmn-toggle-4 user<?php ob_start();
+echo $_smarty_tpl->tpl_vars['list']->value['id'];
+$_prefixVariable63 = ob_get_clean();
+echo $_prefixVariable63;?>
 "></label>
                         </div>
                         <?php ob_start();
 }
-$_prefixVariable63 = ob_get_clean();
-echo $_prefixVariable63;?>
+$_prefixVariable64 = ob_get_clean();
+echo $_prefixVariable64;?>
 
                     </td>
                 </tr>
@@ -488,8 +492,8 @@ echo $_prefixVariable63;?>
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
-$_prefixVariable64 = ob_get_clean();
-echo $_prefixVariable64;?>
+$_prefixVariable65 = ob_get_clean();
+echo $_prefixVariable65;?>
 
             </tbody>
         </table>
@@ -504,24 +508,24 @@ $_smarty_tpl->tpl_vars['num']->first = $_smarty_tpl->tpl_vars['num']->iteration 
                 <li class="page-item"><a class="page-link btn btn-outline-light disabled"
                         href="?user=<?php ob_start();
 echo $_smarty_tpl->tpl_vars['num']->value;
-$_prefixVariable65 = ob_get_clean();
-echo $_prefixVariable65;?>
-"><?php ob_start();
-echo $_smarty_tpl->tpl_vars['num']->value;
 $_prefixVariable66 = ob_get_clean();
 echo $_prefixVariable66;?>
+"><?php ob_start();
+echo $_smarty_tpl->tpl_vars['num']->value;
+$_prefixVariable67 = ob_get_clean();
+echo $_prefixVariable67;?>
 </a>
                 </li>
                 <?php } else { ?>
                 <li class="page-item"><a class="page-link btn btn-outline-light active"
                         href="?user=<?php ob_start();
 echo $_smarty_tpl->tpl_vars['num']->value;
-$_prefixVariable67 = ob_get_clean();
-echo $_prefixVariable67;?>
-"><?php ob_start();
-echo $_smarty_tpl->tpl_vars['num']->value;
 $_prefixVariable68 = ob_get_clean();
 echo $_prefixVariable68;?>
+"><?php ob_start();
+echo $_smarty_tpl->tpl_vars['num']->value;
+$_prefixVariable69 = ob_get_clean();
+echo $_prefixVariable69;?>
 </a>
                 </li>
                 <?php }?>
@@ -569,5 +573,6 @@ echo $_prefixVariable68;?>
 
 </body>
 
-</html><?php }
+</html>
+<?php }
 }

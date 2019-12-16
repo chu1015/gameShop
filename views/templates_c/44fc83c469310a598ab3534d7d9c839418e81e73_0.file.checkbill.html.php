@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-12-10 03:57:55
+/* Smarty version 3.1.33, created on 2019-12-12 05:10:49
   from 'C:\xampp\htdocs\chu\gameShop\templates\checkbill.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5def09b39e1245_90236053',
+  'unifunc' => 'content_5df1bdc985ff21_26602117',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '44fc83c469310a598ab3534d7d9c839418e81e73' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chu\\gameShop\\templates\\checkbill.html',
-      1 => 1575946673,
+      1 => 1576123846,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../templates/navbar.html' => 1,
   ),
 ),false)) {
-function content_5def09b39e1245_90236053 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5df1bdc985ff21_26602117 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -34,7 +34,7 @@ function content_5def09b39e1245_90236053 (Smarty_Internal_Template $_smarty_tpl)
     <?php echo '<script'; ?>
  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"><?php echo '</script'; ?>
 >
-        <!-- bootstrap -->
+    <!-- bootstrap -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <?php echo '<script'; ?>
  src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"><?php echo '</script'; ?>
@@ -177,19 +177,22 @@ echo $_prefixVariable11;?>
                                         <h1>超商取貨:</h1>
                                     </div>
                                     <div>
-                                        <input name="store" type="radio" value="7-11" checked><label
-                                            id="store">7-11</label>
-                                        <input name="store" type="radio" value="familyMart"><label id="store">全家</label>
-                                        <input name="store" type="radio" value="OK-Mart"><label
-                                            id="store">OK-Mart</label>
-                                        <input name="store" type="radio" value="Life"><label id="store">萊爾富</label>
+                                        <input name="store" type="radio" id="7-11" value="7-11" checked><label
+                                            for="7-11" id="store">7-11</label>
+                                        <input name="store" type="radio" id="familyMart" value="familyMart"><label
+                                            for="familyMart" id="store">全家</label>
+                                        <input name="store" type="radio" id="OK-Mart" value="OK-Mart"><label
+                                            for="OK-Mart" id="store">OK-Mart</label>
+                                        <input name="store" type="radio" id="Life" value="Life"><label for="Life"
+                                            id="store">萊爾富</label>
                                     </div>
                                 </div>
                                 <h1>總計(NT):<h1 id="total"><?php ob_start();
 echo $_smarty_tpl->tpl_vars['total']->value;
 $_prefixVariable12 = ob_get_clean();
 echo $_prefixVariable12;?>
-</h1></h1>
+</h1>
+                                </h1>
 
                             </div>
                             <div class="modal-footer">

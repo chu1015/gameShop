@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-12-11 07:00:52
+/* Smarty version 3.1.33, created on 2019-12-12 03:07:20
   from 'C:\xampp\htdocs\chu\gameShop\templates\product.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5df086144701c1_07690008',
+  'unifunc' => 'content_5df1a0d82adb25_17119910',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'bf8ff970bbeb5f1a338c911a0f51d7200e24b866' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chu\\gameShop\\templates\\product.html',
-      1 => 1576044040,
+      1 => 1576116295,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../templates/navbar.html' => 1,
   ),
 ),false)) {
-function content_5df086144701c1_07690008 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5df1a0d82adb25_17119910 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -148,5 +148,6 @@ echo $_prefixVariable16;?>
 
 </body>
 
-</html><?php }
+</html>
+<?php }
 }

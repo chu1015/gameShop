@@ -8,7 +8,7 @@
     <link rel="icon" href="../img/icon.ico" type="image/x-icon">
     <title>結帳中</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
-        <!-- bootstrap -->
+    <!-- bootstrap -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <!-- sweetalert2 -->
@@ -91,15 +91,18 @@
                                         <h1>超商取貨:</h1>
                                     </div>
                                     <div>
-                                        <input name="store" type="radio" value="7-11" checked><label
-                                            id="store">7-11</label>
-                                        <input name="store" type="radio" value="familyMart"><label id="store">全家</label>
-                                        <input name="store" type="radio" value="OK-Mart"><label
-                                            id="store">OK-Mart</label>
-                                        <input name="store" type="radio" value="Life"><label id="store">萊爾富</label>
+                                        <input name="store" type="radio" id="7-11" value="7-11" checked><label
+                                            for="7-11" id="store">7-11</label>
+                                        <input name="store" type="radio" id="familyMart" value="familyMart"><label
+                                            for="familyMart" id="store">全家</label>
+                                        <input name="store" type="radio" id="OK-Mart" value="OK-Mart"><label
+                                            for="OK-Mart" id="store">OK-Mart</label>
+                                        <input name="store" type="radio" id="Life" value="Life"><label for="Life"
+                                            id="store">萊爾富</label>
                                     </div>
                                 </div>
-                                <h1>總計(NT):<h1 id="total">{{$total}}</h1></h1>
+                                <h1>總計(NT):<h1 id="total">{{$total}}</h1>
+                                </h1>
 
                             </div>
                             <div class="modal-footer">

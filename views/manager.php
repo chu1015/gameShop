@@ -1,13 +1,13 @@
 <?php
-##引用Smarty
+## 引用Smarty
 require_once('../libs/Smarty.class.php');
 $smarty = new Smarty;
 $smarty->debugging = true;
-##引用資料庫連線sql語句
+## 引用資料庫連線sql語句
 require_once('../routes/sql.php');
-##引用user相關類別
+## 引用user相關類別
 require_once("../controllers/userController.php");
-##引用product相關類別
+## 引用product相關類別
 require_once("../controllers/productController.php");
 $userClass = new User($mysqli);
 $product = new Product($mysqli);

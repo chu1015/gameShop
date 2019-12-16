@@ -47,7 +47,7 @@ class User extends Token
         // }
         
         $pwd = password_hash($origin["password"], PASSWORD_DEFAULT);
-        $sql = "INSERT INTO users(nickName, account, password)" . "VALUES (?,?,?)";
+        $sql = "INSERT INTO users(nickName, account, password)" . "VALUES (?, ?, ?)";
         $stmt = $this->mysqli->prepare($sql);
         $stmt->bind_param('sss', $origin["name"], $account, $pwd);
         $msg = $stmt->execute();
@@ -99,10 +99,10 @@ class User extends Token
             return $res;
         }
     }
+
     /**
      * 登出
      */
-
     public function logout()
     {
         $sql = "SELECT * FROM `users` WHERE token = ?";
@@ -128,7 +128,10 @@ class User extends Token
             return $res;
         }
     }
-    ##計算管理會員有幾頁
+
+    /**
+     *  計算管理會員有幾頁
+     */
     public function createPage()
     {
         $sql = "SELECT COUNT(*) as total FROM `users` WHERE `level` = 0";
@@ -156,7 +159,6 @@ class User extends Token
     /**
      * 會員清單
      */
-
     public function userList()
     {
         $user = $this->ckCookie();
@@ -175,10 +177,10 @@ class User extends Token
             return $res;
         }
     }
+
     /**
      * 會員停復權
      */
-
     public function Suspension($member)
     {
         $this->ckCookie();

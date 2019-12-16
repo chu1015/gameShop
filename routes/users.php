@@ -1,8 +1,8 @@
 <?php
 ##引用資料庫連線sql語句
-require_once 'sql.php';
+require_once('sql.php');
 ##引用user相關類別
-require_once '../controllers/userController.php';
+require_once('../controllers/userController.php');
 $user = new User($mysqli);
 
 /**
